@@ -33,8 +33,9 @@ var loader = (function() {
     }
 
     window.console.log('html: ' + html);
-    $('.content').html('<ul>' + html + '</ul>');
-    window.console.log('Set to ' + $('.content'));
+    var content = $('.content');
+    content.html('<ul>' + html + '</ul>');
+    window.console.log('Set to ' + content.size() + '-length object.');
   }
 
   return {
@@ -44,4 +45,4 @@ var loader = (function() {
   };
 })();
 
-$(window).on('load', loader.init());
+$(window).load(loader.init());
