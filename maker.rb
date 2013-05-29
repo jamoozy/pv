@@ -1,16 +1,30 @@
+#!/usr/bin/ruby -w
 
+require 'ftools'
 
-exit(-1) if __FILE__ != $0
+if __FILE__ != $0
+  puts 'Must run as separate file.  This is not a library!'
+  exit
+end
 
-def make_page(html_name, title, dir, images)
+# "parse args"
+tmp_dir = '.gen/'
+dst_dir = '~/www/pv'
+
+File.makedirs(tmp_dir) unless File.exists?(tmp_dir)
+File.makedirs(dst_dir) unless File.exists?(dst_dir)
+
+def make_page(entry)
+  html_name = "#{tmp_dir}/#{entry[:bname]}.html"
+  `ln -s "#{entry[:location]}" "#{tmp_dir}/#{entry[:dir]}"`
   f = File.new(html_name, 'w')
   f.write('<!DOCTYPE html>')
   f.write('<html><head>')
   f.write('<meta charset="utf-8">')
-  f.write("<title>#{title}</title>")
+  f.write("<title>#{entry[:title]}</title>")
   f.write('<link rel="stylesheet" type="text/css" src="style.css">')
   f.write('</head><body><div class="content"><ul>')
-  images.each do |image|
+  entry[:images].each do |image|
     f.write("<li><a href=\"#{image[1]}\"><img src=\"#{image[0]}\"></a>")
   end
   f.write('</ul></div></body><html>')
@@ -18,11 +32,12 @@ def make_page(html_name, title, dir, images)
 end
 
 entries = [
-  { 'title' => 'Engagement',
-    'bname' => 'engagement',
-    'dir' => 'engagement',
-    'thumbnail' => 'thumb.jpg',
-    'images' => [
+  { :title => 'Engagement',
+    :bname => 'engagement',
+    :dir => 'engagement',
+    :location => '/home/jamoozy/Pictures/engagement',
+    :thumbnail => 'thumb.jpg',
+    :images => [
       ['IMG_0464 copy-thumb.jpg',     'IMG_0464 copy.jpg'],
       ['IMG_0475 copy-thumb.jpg',     'IMG_0475 copy.jpg'],
       ['IMG_0485 copy-thumb.jpg',     'IMG_0485 copy.jpg'],
@@ -55,25 +70,29 @@ entries = [
 ]
 
 content = '<ul>'
-
 entries.each do |entry|
-  html_name = "#{bname}.html"
+  html_name = "#{entry[:bname]}.html"
   content << "<li><a href=\"#{html_name}\"><img src=\"#{entry['dir']}/#{entry['thumbnail']}\"></a>"
-  make_page(html_name, entry['dir'], entry['images'])
+  make_page(entry)
 end
-
 content << '</ul>'
 
-string = <<eos
+
+f = File.new("#{tmp_dir}/index.html", 'w')
+f.write(
+<<eos
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" src="style.css">
   </head>
-
   <body>
     <div class="content">#{content}</div>
   </body>
 </html>
 eos
+       )
+f.close!
+
+`rsync -avzP #{tmp_dir} #{dst_dir}`
