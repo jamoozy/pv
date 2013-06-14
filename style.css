@@ -46,5 +46,15 @@ li span {
 }
 
 #overlay img {
-  margin:auto;
+  margin:15px;
+  float:left;
+}
+
+#desc, #comments {
+  margin:15px;
+  padding:5px;
+  border:1px solid gray;
+  background-color:white;
+  width:300px;
+  min-width:300px;
 }
