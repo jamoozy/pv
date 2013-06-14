@@ -1,6 +1,7 @@
 #!/usr/bin/ruby -w
 
 require 'ftools'
+require 'sqlite3'
 
 if __FILE__ != $0
   puts 'Must run as separate file.  This is not a library!'
@@ -13,9 +14,40 @@ $dst_dir = '/home/jamoozy/www/pv'
 
 File.makedirs($tmp_dir) unless File.exists?($tmp_dir)
 File.makedirs($dst_dir) unless File.exists?($dst_dir)
-`cp *.js style.css #$tmp_dir`
+`cp .htaccess dbi.rb *.js style.css #$tmp_dir`
 
 def make_page(entry)
+  # Check if DB already exists.  If not, create it.
+  full_db_name = "#$tmp_dir/#{entry[:dir]}/comments.db"
+  unless File.exists?(full_db_name)
+    db = SQLite3::Database.new(full_db_name)
+    db.execute("create table images (
+                  id integer primary key,
+                  name text
+                )")
+    db.execute("create table comments (
+                  id integer primary key,
+                  name text,
+                  comment text,
+                  utime datetime,
+                  ip text,
+                  img_id integer,
+                  foreign key(img_id) references images(id)
+                )")
+
+    # Initial entries for all the images.
+    db.transaction
+    entry[:images].each do |img|
+      db.execute('insert into images (name) values (?)', img[1])
+    end
+    db.commit
+
+    # Set the right permissions for the webserver to handle the DB.
+    `chmod 664 #{full_db_name}`
+    puts "Remember to give your webserver access to #{full_db_name}"
+  end
+
+  # Write HTML file.
   html_name = "#$tmp_dir/#{entry[:bname]}.html"
   `ln -s "#{entry[:location]}" "#$tmp_dir/#{entry[:dir]}"` unless File.exists?("#$tmp_dir/#{entry[:dir]}")
   f = File.new(html_name, 'w')
