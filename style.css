@@ -25,10 +25,13 @@ li span {
   pointer:pointer;
 }
 
-#exit-bg {
+#exit-bg, #overlay {
   display:none;
+  position:fixed;
+}
+
+#exit-bg {
   background-color:rgba(0,0,0,0);
-  position:absolute;
   top:0;
   right:0;
   bottom:0;
@@ -36,9 +39,7 @@ li span {
 }
 
 #overlay {
-  display:none;
   background-color:rgba(0,0,0,0.85);
-  position:absolute;
   top:2em;
   right:2em;
   bottom:2em;
