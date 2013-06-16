@@ -68,9 +68,14 @@ var photos = (function() {
     img.css('max-height', max_height + 'px');
     img_pane.css('width', max_width + 'px');
     img_pane.css('height', max_height + 'px');
-    $(".navs").css('margin-top', ((max_height - NAV_HEIGHT) / 2) + 'px');
-    $("#right").css('margin-left', (max_width - NAV_WIDTH - MARGINS) + 'px');
+
+    var margin_top = ((max_height - NAV_HEIGHT) / 2) + 'px';
+    var margin_left = max_width - NAV_WIDTH - MARGINS;
+    $(".navs").css('margin-top', margin_top);
+    $("#right").css('margin-left', margin_left + 'px');
     $("#left").css('margin-left', MARGINS + 'px');
+    $("#x").css('margin-top', MARGINS + 'px');
+    $("#x").css('margin-left', (margin_left + MARGINS) + 'px');
 
     var ml = '' + (max_width + 2*MARGINS) + 'px';
     desc.css('margin-left', ml);
@@ -133,6 +138,7 @@ var photos = (function() {
     i = (i == spans.length - 1) ? 0 : i + 1;
     window.console.log("Setting to " + i);
     $("#image").attr('src', $(spans[i]).attr('src'));
+    get_all_comments();
   }
 
   function prev() {
@@ -147,6 +153,7 @@ var photos = (function() {
     i = (i == 0) ? spans.length - 1 : i - 1;
     window.console.log("Setting to " + i);
     $("#image").attr('src', $(spans[i]).attr('src'));
+    get_all_comments();
   }
 
   return {
@@ -155,6 +162,7 @@ var photos = (function() {
 
       $('#overlay').click(kill_event);
       $('#exit-bg').click(hide_viewer);
+      $("#x").click(hide_viewer);
       $('#submit').click(send_comment);
       $(window).resize(fit);
       $("#left").click(prev);

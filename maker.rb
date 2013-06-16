@@ -9,7 +9,7 @@ if __FILE__ != $0
 end
 
 # "parse args"
-$tmp_dir = '.gen/'
+$tmp_dir = '.gen'
 $dst_dir = '/home/jamoozy/www/pv'
 
 File.makedirs($tmp_dir) unless File.exists?($tmp_dir)
@@ -45,7 +45,7 @@ def make_page(entry)
 
     # Set the right permissions for the webserver to handle the DB.
     `chmod 664 #{full_db_name}`
-    puts "Remember to give your webserver access to #{full_db_name} and its directory."
+    puts "Please run \"sudo chown :www-data #{full_db_name} && sudo chown :www-data #$tmp_dir/#{entry[:dir]}\""
   end
 
   # Write HTML file.
@@ -63,7 +63,7 @@ def make_page(entry)
   entry[:images].each do |image|
     f.write("<li><span src=\"#{entry[:dir]}/#{image[1]}\"><img src=\"#{entry[:dir]}/#{image[0]}\"></span>")
   end
-  f.write('</ul></div><div id="exit-bg"><div id="overlay"><div id="img-pane"><div id="left" class="navs"><img src="left-arrow.png"></div><div id="right" class="navs"><img src="right-arrow.png"></div><img id="image" src=""></div><div id="desc"></div><div id="comments"><ul></ul><div id="form">Name:<input value="" id="name" type="text"><br>Comment:<input value="" id="comment" type="text"><input type="button" id="submit" value="Submit"></div></div></div></div></body><html>')
+  f.write('</ul></div><div id="exit-bg"><div id="overlay"><div id="img-pane"><div id="left" class="navs"><img src="left-arrow.png"></div><div id="right" class="navs"><img src="right-arrow.png"></div><div id="x"><img src="x.png""></div><img id="image" src=""></div><div id="desc"></div><div id="comments"><ul></ul><div id="form">Leave a comment!<br>Name:<input size="30" value="" id="name" type="text"><br><textarea cols="34" rows="5" id="comment"></textarea><input type="button" id="submit" value="Submit"></div></div></div></div></body><html>')
   f.close
 end
 
@@ -74,31 +74,31 @@ entries = [
     :location => '/home/jamoozy/Pictures/engagement',
     :thumbnail => 'thumb.jpg',
     :images => [
-      ['IMG_0464-thumb.jpg', 'IMG_0464.jpg', ''],
-      ['IMG_0475-thumb.jpg', 'IMG_0475.jpg', ''],
-      ['IMG_0485-thumb.jpg', 'IMG_0485.jpg', ''],
-      ['IMG_0500-thumb.jpg', 'IMG_0500.jpg', ''],
-      ['IMG_0504-thumb.jpg', 'IMG_0504.jpg', ''],
-      ['IMG_0508-thumb.jpg', 'IMG_0508.jpg', ''],
-      ['IMG_0525-thumb.jpg', 'IMG_0525.jpg', ''],
-      ['IMG_0550-thumb.jpg', 'IMG_0550.jpg', ''],
-      ['IMG_0554-thumb.jpg', 'IMG_0554.jpg', ''],
-      ['IMG_0563-thumb.jpg', 'IMG_0563.jpg', ''],
-      ['IMG_0598-thumb.jpg', 'IMG_0598.jpg', ''],
-      ['IMG_0601-thumb.jpg', 'IMG_0601.jpg', ''],
-      ['IMG_0618-thumb.jpg', 'IMG_0618.jpg', ''],
-      ['IMG_0630-thumb.jpg', 'IMG_0630.jpg', ''],
-      ['IMG_0639-thumb.jpg', 'IMG_0639.jpg', ''],
-      ['IMG_0648-thumb.jpg', 'IMG_0648.jpg', ''],
-      ['IMG_0652-thumb.jpg', 'IMG_0652.jpg', ''],
-      ['IMG_0666-thumb.jpg', 'IMG_0666.jpg', ''],
-      ['IMG_0670-thumb.jpg', 'IMG_0670.jpg', ''],
-      ['IMG_0683-thumb.jpg', 'IMG_0683.jpg', ''],
-      ['IMG_0685-thumb.jpg', 'IMG_0685.jpg', ''],
-      ['IMG_0690-thumb.jpg', 'IMG_0690.jpg', ''],
-      ['IMG_0692-thumb.jpg', 'IMG_0692.jpg', ""],
-      ['IMG_0712-thumb.jpg', 'IMG_0712.jpg', ""],
-      ['IMG_0732-thumb.jpg', 'IMG_0732.jpg', ""] ] },
+      ['IMG_0464-thumb.jpg', 'IMG_0464.jpg', "MIT Advertisement?"],
+      ['IMG_0475-thumb.jpg', 'IMG_0475.jpg', "Framed Love"],
+      ['IMG_0485-thumb.jpg', 'IMG_0485.jpg', "Mmmmm"],
+      ['IMG_0500-thumb.jpg', 'IMG_0500.jpg', "A beautiful skyline."],
+      ['IMG_0504-thumb.jpg', 'IMG_0504.jpg', "A beautiful couple."],
+      ['IMG_0508-thumb.jpg', 'IMG_0508.jpg', "&mdash;"],
+      ['IMG_0525-thumb.jpg', 'IMG_0525.jpg', "&mdash;"],
+      ['IMG_0550-thumb.jpg', 'IMG_0550.jpg', "&lt;3"],
+      ['IMG_0554-thumb.jpg', 'IMG_0554.jpg', "Climbing a tree."],
+      ['IMG_0563-thumb.jpg', 'IMG_0563.jpg', "Tree Huggers"],
+      ['IMG_0598-thumb.jpg', 'IMG_0598.jpg', "At the docks."],
+      ['IMG_0601-thumb.jpg', 'IMG_0601.jpg', "Kissing at the docs."],
+      ['IMG_0618-thumb.jpg', 'IMG_0618.jpg', "Dip"],
+      ['IMG_0630-thumb.jpg', 'IMG_0630.jpg', "Doing math &amp; drawing."],
+      ['IMG_0639-thumb.jpg', 'IMG_0639.jpg', "What have we proven?"],
+      ['IMG_0648-thumb.jpg', 'IMG_0648.jpg', "Framed Love #2"],
+      ['IMG_0652-thumb.jpg', 'IMG_0652.jpg', "Acorn St."],
+      ['IMG_0666-thumb.jpg', 'IMG_0666.jpg', "Kiss."],
+      ['IMG_0670-thumb.jpg', 'IMG_0670.jpg', "Chilling."],
+      ['IMG_0683-thumb.jpg', 'IMG_0683.jpg', "Our Front Page Shot"],
+      ['IMG_0685-thumb.jpg', 'IMG_0685.jpg', "Love."],
+      ['IMG_0690-thumb.jpg', 'IMG_0690.jpg', "Our Save the Date"],
+      ['IMG_0692-thumb.jpg', 'IMG_0692.jpg', "Alternate Shot"],
+      ['IMG_0712-thumb.jpg', 'IMG_0712.jpg', "A pretty doorstep."],
+      ['IMG_0732-thumb.jpg', 'IMG_0732.jpg', "<3"] ] },
   { :title => 'Maui Underwater',
     :bname => 'maui',
     :dir => 'maui',
@@ -127,10 +127,10 @@ entries = [
       ['20-thumb.jpg', '20.jpg', "Andrew."],
       ['21-thumb.jpg', '21.jpg', "Ashley's fin."],
       ['22-thumb.jpg', '22.jpg', "Andrew's in the BG."],
-      ['23-thumb.jpg', '23.jpg', ''],
-      ['24-thumb.jpg', '24.jpg', ''],
-      ['25-thumb.jpg', '25.jpg', ''],
-      ['26-thumb.jpg', '26.jpg', ''] ] } ]
+      ['23-thumb.jpg', '23.jpg', "Coral"],
+      ['24-thumb.jpg', '24.jpg', "Coral"],
+      ['25-thumb.jpg', '25.jpg', "Heading back to land."],
+      ['26-thumb.jpg', '26.jpg', "But first, more dolphins!"] ] } ]
 
 content = '<ul>'
 entries.each do |entry|
@@ -158,4 +158,4 @@ eos
 )
 f.close
 
-`rsync -avzP #$tmp_dir #$dst_dir`
+`rsync -avzP #$tmp_dir/ #$dst_dir/`

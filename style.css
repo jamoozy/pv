@@ -65,6 +65,11 @@ li span {
   min-width:300px;
 }
 
+#desc {
+  font-size:16pt;
+  text-align:center;
+}
+
 #overlay, #overlay ul, #overlay li {
   text-align:left;
 }
@@ -82,8 +87,9 @@ li span {
   margin:0 10px 0 0;
 }
 
-.navs {
+.navs, #x {
   position:fixed;
   cursor:pointer;
 }
 
+#overlay li span { cursor:default; }
