@@ -14,7 +14,7 @@ $dst_dir = '/home/jamoozy/www/pv'
 
 File.makedirs($tmp_dir) unless File.exists?($tmp_dir)
 File.makedirs($dst_dir) unless File.exists?($dst_dir)
-`cp .htaccess dbi.rb *.js style.css #$tmp_dir`
+`cp icons/*.png .htaccess dbi.rb *.js style.css #$tmp_dir`
 
 def make_page(entry)
   # Check if DB already exists.  If not, create it.
@@ -63,7 +63,7 @@ def make_page(entry)
   entry[:images].each do |image|
     f.write("<li><span src=\"#{entry[:dir]}/#{image[1]}\"><img src=\"#{entry[:dir]}/#{image[0]}\"></span>")
   end
-  f.write('</ul></div><div id="exit-bg"><div id="overlay"><div id="img-pane"><img src=""></div><div id="desc"></div><div id="comments"><ul></ul><div id="form">Name:<input value="" id="name" type="text"><br>Comment:<input value="" id="comment" type="text"><input type="button" id="submit" value="Submit"></div></div></div></div></body><html>')
+  f.write('</ul></div><div id="exit-bg"><div id="overlay"><div id="img-pane"><div id="left" class="navs"><img src="left-arrow.png"></div><div id="right" class="navs"><img src="right-arrow.png"></div><img id="image" src=""></div><div id="desc"></div><div id="comments"><ul></ul><div id="form">Name:<input value="" id="name" type="text"><br>Comment:<input value="" id="comment" type="text"><input type="button" id="submit" value="Submit"></div></div></div></div></body><html>')
   f.close
 end
 

@@ -22,7 +22,7 @@ li img {
 }
 
 li span {
-  pointer:pointer;
+  cursor:pointer;
 }
 
 #exit-bg, #overlay {
@@ -81,3 +81,9 @@ li span {
   font-weight:bold;
   margin:0 10px 0 0;
 }
+
+.navs {
+  position:fixed;
+  cursor:pointer;
+}
+

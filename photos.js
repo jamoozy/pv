@@ -6,9 +6,11 @@ var photos = (function() {
   // Dirty, dirty constants.
   var MARGINS = 15;     // (pixels assumed)
   var MIN_MARGIN = 100; // (pixels assumed)
+  var NAV_HEIGHT = 56;
+  var NAV_WIDTH = 30;
 
   function get_dir_img_from_img() {
-    return $("#overlay").find('img').attr("src").split("/");
+    return $("#image").attr("src").split("/");
   }
 
   function get_all_comments() {
@@ -37,7 +39,7 @@ var photos = (function() {
     var overlay = $('#overlay');
     var desc = $('#desc');
     var comments = $('#comments');
-    var img = overlay.find('img');
+    var img = $("#image");
     var form = $("#form");
 
     overlay.show();
@@ -52,7 +54,6 @@ var photos = (function() {
   }
 
   // Find best position/size for image.
-  // TODO Center also.
   function fit() {
     var overlay = $('#overlay');
     var desc = $('#desc');
@@ -67,6 +68,9 @@ var photos = (function() {
     img.css('max-height', max_height + 'px');
     img_pane.css('width', max_width + 'px');
     img_pane.css('height', max_height + 'px');
+    $(".navs").css('margin-top', ((max_height - NAV_HEIGHT) / 2) + 'px');
+    $("#right").css('margin-left', (max_width - NAV_WIDTH - MARGINS) + 'px');
+    $("#left").css('margin-left', MARGINS + 'px');
 
     var ml = '' + (max_width + 2*MARGINS) + 'px';
     desc.css('margin-left', ml);
@@ -107,6 +111,44 @@ var photos = (function() {
     });
   }
 
+  function get_current_img_idx() {
+    var spans = $(".content ul span");
+    for (var i = 0; e = spans[i++];) {
+      if ($(e).attr('src') == $("#image").attr('src')) {
+        return i - 1;
+      }
+    }
+    return -1;
+  }
+
+  function next() {
+    window.console.log("next()");
+    var i = get_current_img_idx();
+    if (i < 0) {
+      window.console.log("Not found!?");
+      return;
+    }
+
+    var spans = $(".content ul span");
+    i = (i == spans.length - 1) ? 0 : i + 1;
+    window.console.log("Setting to " + i);
+    $("#image").attr('src', $(spans[i]).attr('src'));
+  }
+
+  function prev() {
+    window.console.log("prev()");
+    var i = get_current_img_idx();
+    if (i < 0) {
+      window.console.log("Not found!?");
+      return;
+    }
+
+    var spans = $(".content ul span");
+    i = (i == 0) ? spans.length - 1 : i - 1;
+    window.console.log("Setting to " + i);
+    $("#image").attr('src', $(spans[i]).attr('src'));
+  }
+
   return {
     init : function() {
       $('li').find('span').click(show_viewer);
@@ -115,6 +157,8 @@ var photos = (function() {
       $('#exit-bg').click(hide_viewer);
       $('#submit').click(send_comment);
       $(window).resize(fit);
+      $("#left").click(prev);
+      $("#right").click(next);
     }
   };
 })();
