@@ -47,6 +47,11 @@ li span {
 }
 
 #overlay img {
+  display:block;
+  margin:auto;
+}
+
+#img-pane {
   margin:15px;
   float:left;
 }
@@ -58,4 +63,21 @@ li span {
   background-color:white;
   width:300px;
   min-width:300px;
+}
+
+#overlay, #overlay ul, #overlay li {
+  text-align:left;
+}
+
+#overlay ul {
+  border-bottom:1px solid gray;
+  display:block;
+  padding:0 0 5px 0;
+  margin:0 0 5px 0;
+  overflow-y:scroll;
+}
+
+.name {
+  font-weight:bold;
+  margin:0 10px 0 0;
 }
