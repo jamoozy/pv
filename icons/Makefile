@@ -7,3 +7,6 @@ all : $(pngs)
 
 %.png : %.svg
 	inkscape -C -e $@ $< --export-width=30px
+
+x.png : x.svg
+	inkscape -C -e $@ $< --export-width=15px
