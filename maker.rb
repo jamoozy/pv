@@ -1,4 +1,21 @@
 #!/usr/bin/ruby -w
+#
+# Copyright (c) 2013 Andrew "Jamoozy" Correa,
+# 
+# This file is part of Picture Viewer.
+# 
+# Picture Viewer is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 require 'ftools'
 require 'sqlite3'
@@ -16,9 +33,11 @@ File.makedirs($tmp_dir) unless File.exists?($tmp_dir)
 File.makedirs($dst_dir) unless File.exists?($dst_dir)
 `cp icons/*.png .htaccess dbi.rb *.js style.css #$tmp_dir`
 
+# Makes a page for an album according to the entry.
+#   entry: And entry like what's described in the comments below.
 def make_page(entry)
   # Check if DB already exists.  If not, create it.
-  full_db_name = "#$tmp_dir/#{entry[:dir]}/comments.db"
+  full_db_name = "#$tmp_dir/#{entry[:sln]}/comments.db"
   unless File.exists?(full_db_name)
     db = SQLite3::Database.new(full_db_name)
     db.execute("create table images (
@@ -43,14 +62,15 @@ def make_page(entry)
     end
     db.commit
 
-    # Set the right permissions for the webserver to handle the DB.
+    # Set the right permissions for the webserver to handle the DB & prompt
+    # the user to run the chown on the DB and its directory.
     `chmod 664 #{full_db_name}`
-    puts "Please run \"sudo chown :www-data #{full_db_name} && sudo chown :www-data #$tmp_dir/#{entry[:dir]}\""
+    puts "Please run \"sudo chown :www-data #{full_db_name} && sudo chown :www-data #$tmp_dir/#{entry[:sln]}\""
   end
 
   # Write HTML file.
   html_name = "#$tmp_dir/#{entry[:bname]}.html"
-  `ln -s "#{entry[:location]}" "#$tmp_dir/#{entry[:dir]}"` unless File.exists?("#$tmp_dir/#{entry[:dir]}")
+  `ln -s "#{entry[:loc]}" "#$tmp_dir/#{entry[:sln]}"` unless File.exists?("#$tmp_dir/#{entry[:sln]}")
   f = File.new(html_name, 'w')
   f.write('<!DOCTYPE html>')
   f.write('<html><head>')
@@ -61,18 +81,26 @@ def make_page(entry)
   f.write('<script src="photos.js" type="text/javascript"></script>')
   f.write('</head><body><div class="content"><ul>')
   entry[:images].each do |image|
-    f.write("<li><span src=\"#{entry[:dir]}/#{image[1]}\"><img src=\"#{entry[:dir]}/#{image[0]}\"></span>")
+    f.write("<li><span src=\"#{entry[:sln]}/#{image[1]}\"><img src=\"#{entry[:sln]}/#{image[0]}\"></span>")
   end
   f.write('</ul></div><div id="exit-bg"><div id="overlay"><div id="img-pane"><div id="left" class="navs"><img src="left-arrow.png"></div><div id="right" class="navs"><img src="right-arrow.png"></div><div id="x"><img src="x.png""></div><img id="image" src=""></div><div id="desc"></div><div id="comments"><ul></ul><div id="form">Leave a comment!<br>Name:<input size="30" value="" id="name" type="text"><br><textarea cols="34" rows="5" id="comment"></textarea><input type="button" id="submit" value="Submit"></div></div></div></div></body><html>')
   f.close
 end
 
+# List the entries in the main page.  Expected top-level keys:
+#     title: Title of the album.
+#     bname: Base name of the album's page.
+#       sln: Sym-link to create to loc.
+#       loc: Location on disk of the files.
+#     thumb: Name of the thumbnail to display on the main page.
+#    images: List of images in the album.  Each element in the list consists
+#            of a thumbnail, an image, and a title for the image.
 entries = [
   { :title => 'Engagement',
     :bname => 'engagement',
-    :dir => 'engagement',
-    :location => '/home/jamoozy/Pictures/engagement',
-    :thumbnail => 'thumb.jpg',
+    :sln => 'engagement',
+    :loc => '/home/jamoozy/Pictures/engagement',
+    :thumb => 'thumb.jpg',
     :images => [
       ['IMG_0464-thumb.jpg', 'IMG_0464.jpg', "MIT Advertisement?"],
       ['IMG_0475-thumb.jpg', 'IMG_0475.jpg', "Framed Love"],
@@ -101,9 +129,9 @@ entries = [
       ['IMG_0732-thumb.jpg', 'IMG_0732.jpg', "<3"] ] },
   { :title => 'Maui Underwater',
     :bname => 'maui',
-    :dir => 'maui',
-    :location => '/home/jamoozy/Pictures/maui',
-    :thumbnail => 'thumb.jpg',
+    :sln => 'maui',
+    :loc => '/home/jamoozy/Pictures/maui',
+    :thumb => 'thumb.jpg',
     :images => [
       ['01-thumb.jpg', '01.jpg', 'Cute!'],
       ['02-thumb.jpg', '02.jpg', 'We\'re flying!'],
@@ -132,30 +160,19 @@ entries = [
       ['25-thumb.jpg', '25.jpg', "Heading back to land."],
       ['26-thumb.jpg', '26.jpg', "But first, more dolphins!"] ] } ]
 
+# Generate the list of albums for the main page.
 content = '<ul>'
 entries.each do |entry|
   html_name = "#{entry[:bname]}.html"
-  content << "<li><a href=\"#{html_name}\"><img src=\"#{entry[:dir]}/#{entry[:thumbnail]}\"><br>#{entry[:title]}</a>"
+  content << "<li><a href=\"#{html_name}\"><img src=\"#{entry[:sln]}/#{entry[:thumb]}\"><br>#{entry[:title]}</a>"
   make_page(entry)
 end
 content << '</ul>'
 
-
+# Write index.html with the above content.
 f = File.new("#$tmp_dir/index.html", 'w')
-f.write(
-<<eos
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
-    <div class="content">#{content}</div>
-  </body>
-</html>
-eos
-)
+f.write("<!DOCTYPE html><html><head><meta charset='utf-8'><link rel='stylesheet' type='text/css' href='style.css'></head><body><div class='content'>#{content}</div></body></html>")
 f.close
 
+# Copy tmp dir to final location.
 `rsync -avzP #$tmp_dir/ #$dst_dir/`
