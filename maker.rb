@@ -79,11 +79,13 @@ def make_page(entry)
   f.write('<link rel="stylesheet" type="text/css" href="style.css">')
   f.write('<script src="jquery-1.10.1.min.js" type="text/javascript"></script>')
   f.write('<script src="photos.js" type="text/javascript"></script>')
-  f.write('</head><body><div class="content"><ul>')
+  f.write('</head><body><h1>')
+  f.write(entry[:title])
+  f.write('</h1><div class="content"><ul>')
   entry[:images].each do |image|
     f.write("<li><span src=\"#{entry[:sln]}/#{image[1]}\"><img src=\"#{entry[:sln]}/#{image[0]}\"></span>")
   end
-  f.write('</ul></div><div id="exit-bg"><div id="overlay"><div id="img-pane"><div id="left" class="navs"><img src="left-arrow.png"></div><div id="right" class="navs"><img src="right-arrow.png"></div><div id="x"><img src="x.png""></div><img id="image" src=""></div><div id="desc"></div><div id="comments"><ul></ul><div id="form">Leave a comment!<br>Name:<input size="30" value="" id="name" type="text"><br><textarea cols="34" rows="5" id="comment"></textarea><input type="button" id="submit" value="Submit"></div></div></div></div></body><html>')
+  f.write('</ul></div><div id="exit-bg"><div id="overlay"><div id="x"><img src="x.png""></div><div id="img-pane"><div id="left" class="navs"><img src="left-arrow.png"></div><div id="right" class="navs"><img src="right-arrow.png"></div><img id="image" src=""></div><div id="desc"></div><div id="comments"><ul></ul><div id="form">Leave a comment!<br>Name:<input size="30" value="" id="name" type="text"><br><textarea cols="34" rows="5" id="comment"></textarea><input type="button" id="submit" value="Submit"></div></div></div></div></body><html>')
   f.close
 end
 
@@ -134,8 +136,8 @@ entries = [
     :thumb => 'thumb.jpg',
     :images => [
       ['01-thumb.jpg', '01.jpg', 'Cute!'],
-      ['02-thumb.jpg', '02.jpg', 'We\'re flying!'],
-      ['03-thumb.jpg', '03.jpg', 'The boat is far away ...'],
+      ['02-thumb.jpg', '02.jpg', "We're flying!"],
+      ['03-thumb.jpg', '03.jpg', "We're 50 floors above the water"],
       ['04-thumb.jpg', '04.jpg', 'Ashley'],
       ['05-thumb.jpg', '05.jpg', 'Our feet.'],
       ['06-thumb.jpg', '06.jpg', 'Ashley & Maui'],
@@ -146,17 +148,17 @@ entries = [
       ['11-thumb.jpg', '11.jpg', 'Dolpins!  They were sleeping.'],
       ['12-thumb.jpg', '12.jpg', "Andrew, chilling with a turtle."],
       ['13-thumb.jpg', '13.jpg', "That's a turtle."],
-      ['14-thumb.jpg', '14.jpg', "Coral."],
+      ['14-thumb.jpg', '14.jpg', "Needle Nose Fish"],
       ['15-thumb.jpg', '15.jpg', "Andrew dives deep."],
       ['16-thumb.jpg', '16.jpg', "Spinner dolphins (now awake)!"],
-      ['17-thumb.jpg', '17.jpg', "Andrew snorkelling for the first time."],
+      ['17-thumb.jpg', '17.jpg', "Andrew snorkeling for the first time."],
       ['18-thumb.jpg', '18.jpg', "Andrew again."],
       ['19-thumb.jpg', '19.jpg', "Ashley diving."],
       ['20-thumb.jpg', '20.jpg', "Andrew."],
       ['21-thumb.jpg', '21.jpg', "Ashley's fin."],
       ['22-thumb.jpg', '22.jpg', "Andrew's in the BG."],
       ['23-thumb.jpg', '23.jpg', "Coral"],
-      ['24-thumb.jpg', '24.jpg', "Coral"],
+      ['24-thumb.jpg', '24.jpg', "Coral with Hidden Fish"],
       ['25-thumb.jpg', '25.jpg', "Heading back to land."],
       ['26-thumb.jpg', '26.jpg', "But first, more dolphins!"] ] } ]
 

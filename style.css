@@ -17,17 +17,26 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-ul {
-  list-style-type:none;
-  padding:0;
-  margin:0;
+h1 {
+  font-size:22pt;
+  text-decoration:underline;
+  margin-left:50px;
 }
 
 ul, li {
   display:inline-block;
-  margin:5px;
   vertical-align:middle;
+}
+
+ul {
+  list-style-type:none;
+  padding:0;
+  margin:0 0 0 50px;
+}
+
+li {
   text-align:center;
+  margin:5px 10px 5px 0;
 }
 
 li a {
@@ -71,12 +80,12 @@ li span {
 }
 
 #img-pane {
-  margin:15px;
+  margin:25px;
   float:left;
 }
 
 #desc, #comments {
-  margin:15px;
+  margin:25px;
   padding:5px;
   border:1px solid gray;
   background-color:white;

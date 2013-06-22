@@ -17,9 +17,22 @@
 
 var photos = (function() {
   // Dirty, dirty constants.
-  var MARGINS = 15;     // (pixels assumed)
+  var MARGINS = 25;     // (pixels assumed)
   var NAV_HEIGHT = 56;
   var NAV_WIDTH = 30;
+
+  function compute_li_min_width() {
+    var max = 0;
+    $('li').each(function(i, e) {
+      var w = $(e).outerWidth();
+      if (max < w) {
+        max = w;
+      }
+    });
+
+    window.console.log("Setting all li.min-width to " + max + "px");
+    $('li').css('min-width', max + 'px');
+  }
 
   function get_dir_img_from_img() {
     return $("#image").attr("src").split("/");
@@ -86,8 +99,8 @@ var photos = (function() {
     $(".navs").css('margin-top', margin_top);
     $("#right").css('margin-left', margin_left + 'px');
     $("#left").css('margin-left', MARGINS + 'px');
-    $("#x").css('margin-top', MARGINS + 'px');
-    $("#x").css('margin-left', (margin_left + MARGINS) + 'px');
+    $("#x").css('margin-top', '5px');
+    $("#x").css('margin-left', (overlay.width() - 20) + 'px');
 
     var ml = '' + (max_width + 2*MARGINS) + 'px';
     desc.css('margin-left', ml);
@@ -170,6 +183,8 @@ var photos = (function() {
 
   return {
     init : function() {
+      compute_li_min_width();
+
       $('li').find('span').click(show_viewer);
 
       $('#overlay').click(kill_event);
