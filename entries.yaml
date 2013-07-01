@@ -88,6 +88,7 @@
     - <3
   :title: Engagement
   :bname: engagement
+
 - :sln: details
   :loc: /home/media/pictures/aa-details
   :thumb: thumb.jpg
@@ -460,6 +461,7 @@
     - ""
   :title: Details
   :bname: details
+
 - :sln: ceremony
   :loc: /home/media/pictures/aa-ceremony
   :thumb: thumb.jpg
@@ -1579,6 +1581,956 @@
     - ""
   :title: Ceremony
   :bname: ceremony
+
+- :sln: bridegroom
+  :loc: /home/media/pictures/aa-bride-and-groom
+  :thumb: thumb.jpg
+  :images: 
+  - - thumbs/0-100.jpg
+    - 0-100.jpg
+    - ""
+  - - thumbs/0-101.jpg
+    - 0-101.jpg
+    - ""
+  - - thumbs/0-10-2.jpg
+    - 0-10-2.jpg
+    - ""
+  - - thumbs/0-102.jpg
+    - 0-102.jpg
+    - ""
+  - - thumbs/0-10-3.jpg
+    - 0-10-3.jpg
+    - ""
+  - - thumbs/0-103.jpg
+    - 0-103.jpg
+    - ""
+  - - thumbs/0-104.jpg
+    - 0-104.jpg
+    - ""
+  - - thumbs/0-105.jpg
+    - 0-105.jpg
+    - ""
+  - - thumbs/0-107.jpg
+    - 0-107.jpg
+    - ""
+  - - thumbs/0-108.jpg
+    - 0-108.jpg
+    - ""
+  - - thumbs/0-109.jpg
+    - 0-109.jpg
+    - ""
+  - - thumbs/0-10.jpg
+    - 0-10.jpg
+    - ""
+  - - thumbs/0-110.jpg
+    - 0-110.jpg
+    - ""
+  - - thumbs/0-111.jpg
+    - 0-111.jpg
+    - ""
+  - - thumbs/0-11-2.jpg
+    - 0-11-2.jpg
+    - ""
+  - - thumbs/0-112.jpg
+    - 0-112.jpg
+    - ""
+  - - thumbs/0-11-3.jpg
+    - 0-11-3.jpg
+    - ""
+  - - thumbs/0-113.jpg
+    - 0-113.jpg
+    - ""
+  - - thumbs/0-115.jpg
+    - 0-115.jpg
+    - ""
+  - - thumbs/0-117.jpg
+    - 0-117.jpg
+    - ""
+  - - thumbs/0-119.jpg
+    - 0-119.jpg
+    - ""
+  - - thumbs/0-11.jpg
+    - 0-11.jpg
+    - ""
+  - - thumbs/0-12-2.jpg
+    - 0-12-2.jpg
+    - ""
+  - - thumbs/0-122.jpg
+    - 0-122.jpg
+    - ""
+  - - thumbs/0-12-3.jpg
+    - 0-12-3.jpg
+    - ""
+  - - thumbs/0-123.jpg
+    - 0-123.jpg
+    - ""
+  - - thumbs/0-124.jpg
+    - 0-124.jpg
+    - ""
+  - - thumbs/0-125.jpg
+    - 0-125.jpg
+    - ""
+  - - thumbs/0-126.jpg
+    - 0-126.jpg
+    - ""
+  - - thumbs/0-127.jpg
+    - 0-127.jpg
+    - ""
+  - - thumbs/0-128.jpg
+    - 0-128.jpg
+    - ""
+  - - thumbs/0-129.jpg
+    - 0-129.jpg
+    - ""
+  - - thumbs/0-12.jpg
+    - 0-12.jpg
+    - ""
+  - - thumbs/0-13-2.jpg
+    - 0-13-2.jpg
+    - ""
+  - - thumbs/0-132.jpg
+    - 0-132.jpg
+    - ""
+  - - thumbs/0-13-3.jpg
+    - 0-13-3.jpg
+    - ""
+  - - thumbs/0-134.jpg
+    - 0-134.jpg
+    - ""
+  - - thumbs/0-135.jpg
+    - 0-135.jpg
+    - ""
+  - - thumbs/0-13.jpg
+    - 0-13.jpg
+    - ""
+  - - thumbs/0-14-3.jpg
+    - 0-14-3.jpg
+    - ""
+  - - thumbs/0-14.jpg
+    - 0-14.jpg
+    - ""
+  - - thumbs/0-15-2.jpg
+    - 0-15-2.jpg
+    - ""
+  - - thumbs/0-15-3.jpg
+    - 0-15-3.jpg
+    - ""
+  - - thumbs/0-15.jpg
+    - 0-15.jpg
+    - ""
+  - - thumbs/0-16-2.jpg
+    - 0-16-2.jpg
+    - ""
+  - - thumbs/0-16-3.jpg
+    - 0-16-3.jpg
+    - ""
+  - - thumbs/0-17-2.jpg
+    - 0-17-2.jpg
+    - ""
+  - - thumbs/0-17-3.jpg
+    - 0-17-3.jpg
+    - ""
+  - - thumbs/0-18-2.jpg
+    - 0-18-2.jpg
+    - ""
+  - - thumbs/0-18-3.jpg
+    - 0-18-3.jpg
+    - ""
+  - - thumbs/0-18.jpg
+    - 0-18.jpg
+    - ""
+  - - thumbs/0-19-2.jpg
+    - 0-19-2.jpg
+    - ""
+  - - thumbs/0-19-3.jpg
+    - 0-19-3.jpg
+    - ""
+  - - thumbs/0-19.jpg
+    - 0-19.jpg
+    - ""
+  - - thumbs/0-20-2.jpg
+    - 0-20-2.jpg
+    - ""
+  - - thumbs/0-20-3.jpg
+    - 0-20-3.jpg
+    - ""
+  - - thumbs/0-20.jpg
+    - 0-20.jpg
+    - ""
+  - - thumbs/0-21-2.jpg
+    - 0-21-2.jpg
+    - ""
+  - - thumbs/0-21.jpg
+    - 0-21.jpg
+    - ""
+  - - thumbs/0-22-2.jpg
+    - 0-22-2.jpg
+    - ""
+  - - thumbs/0-2-2.jpg
+    - 0-2-2.jpg
+    - ""
+  - - thumbs/0-22.jpg
+    - 0-22.jpg
+    - ""
+  - - thumbs/0-23-2.jpg
+    - 0-23-2.jpg
+    - ""
+  - - thumbs/0-2-3.jpg
+    - 0-2-3.jpg
+    - ""
+  - - thumbs/0-23.jpg
+    - 0-23.jpg
+    - ""
+  - - thumbs/0-24-2.jpg
+    - 0-24-2.jpg
+    - ""
+  - - thumbs/0-2-4.jpg
+    - 0-2-4.jpg
+    - ""
+  - - thumbs/0-24.jpg
+    - 0-24.jpg
+    - ""
+  - - thumbs/0-2-5.jpg
+    - 0-2-5.jpg
+    - ""
+  - - thumbs/0-25.jpg
+    - 0-25.jpg
+    - ""
+  - - thumbs/0-27-2.jpg
+    - 0-27-2.jpg
+    - ""
+  - - thumbs/0-27.jpg
+    - 0-27.jpg
+    - ""
+  - - thumbs/0-28-2.jpg
+    - 0-28-2.jpg
+    - ""
+  - - thumbs/0-28.jpg
+    - 0-28.jpg
+    - ""
+  - - thumbs/0-29-2.jpg
+    - 0-29-2.jpg
+    - ""
+  - - thumbs/0-29.jpg
+    - 0-29.jpg
+    - ""
+  - - thumbs/0-2.jpg
+    - 0-2.jpg
+    - ""
+  - - thumbs/0-30-2.jpg
+    - 0-30-2.jpg
+    - ""
+  - - thumbs/0-30.jpg
+    - 0-30.jpg
+    - ""
+  - - thumbs/0-31-2.jpg
+    - 0-31-2.jpg
+    - ""
+  - - thumbs/0-31.jpg
+    - 0-31.jpg
+    - ""
+  - - thumbs/0-32-2.jpg
+    - 0-32-2.jpg
+    - ""
+  - - thumbs/0-3-2.jpg
+    - 0-3-2.jpg
+    - ""
+  - - thumbs/0-32.jpg
+    - 0-32.jpg
+    - ""
+  - - thumbs/0-33-2.jpg
+    - 0-33-2.jpg
+    - ""
+  - - thumbs/0-33.jpg
+    - 0-33.jpg
+    - ""
+  - - thumbs/0-34-2.jpg
+    - 0-34-2.jpg
+    - ""
+  - - thumbs/0-3-4.jpg
+    - 0-3-4.jpg
+    - ""
+  - - thumbs/0-34.jpg
+    - 0-34.jpg
+    - ""
+  - - thumbs/0-35.jpg
+    - 0-35.jpg
+    - ""
+  - - thumbs/0-37.jpg
+    - 0-37.jpg
+    - ""
+  - - thumbs/0-38.jpg
+    - 0-38.jpg
+    - ""
+  - - thumbs/0-39.jpg
+    - 0-39.jpg
+    - ""
+  - - thumbs/0-3.jpg
+    - 0-3.jpg
+    - ""
+  - - thumbs/0-40.jpg
+    - 0-40.jpg
+    - ""
+  - - thumbs/0-41.jpg
+    - 0-41.jpg
+    - ""
+  - - thumbs/0-4-2.jpg
+    - 0-4-2.jpg
+    - ""
+  - - thumbs/0-42.jpg
+    - 0-42.jpg
+    - ""
+  - - thumbs/0-4-3.jpg
+    - 0-4-3.jpg
+    - ""
+  - - thumbs/0-44.jpg
+    - 0-44.jpg
+    - ""
+  - - thumbs/0-45.jpg
+    - 0-45.jpg
+    - ""
+  - - thumbs/0-46.jpg
+    - 0-46.jpg
+    - ""
+  - - thumbs/0-47.jpg
+    - 0-47.jpg
+    - ""
+  - - thumbs/0-48.jpg
+    - 0-48.jpg
+    - ""
+  - - thumbs/0-49.jpg
+    - 0-49.jpg
+    - ""
+  - - thumbs/0-4.jpg
+    - 0-4.jpg
+    - ""
+  - - thumbs/0-50.jpg
+    - 0-50.jpg
+    - ""
+  - - thumbs/0-51.jpg
+    - 0-51.jpg
+    - ""
+  - - thumbs/0-5-2.jpg
+    - 0-5-2.jpg
+    - ""
+  - - thumbs/0-5-3.jpg
+    - 0-5-3.jpg
+    - ""
+  - - thumbs/0-5-4.jpg
+    - 0-5-4.jpg
+    - ""
+  - - thumbs/0-55.jpg
+    - 0-55.jpg
+    - ""
+  - - thumbs/0-57.jpg
+    - 0-57.jpg
+    - ""
+  - - thumbs/0-58.jpg
+    - 0-58.jpg
+    - ""
+  - - thumbs/0-59.jpg
+    - 0-59.jpg
+    - ""
+  - - thumbs/0-5.jpg
+    - 0-5.jpg
+    - ""
+  - - thumbs/0-60.jpg
+    - 0-60.jpg
+    - ""
+  - - thumbs/0-61.jpg
+    - 0-61.jpg
+    - ""
+  - - thumbs/0-62.jpg
+    - 0-62.jpg
+    - ""
+  - - thumbs/0-6-3.jpg
+    - 0-6-3.jpg
+    - ""
+  - - thumbs/0-63.jpg
+    - 0-63.jpg
+    - ""
+  - - thumbs/0-6-4.jpg
+    - 0-6-4.jpg
+    - ""
+  - - thumbs/0-64.jpg
+    - 0-64.jpg
+    - ""
+  - - thumbs/0-65.jpg
+    - 0-65.jpg
+    - ""
+  - - thumbs/0-66.jpg
+    - 0-66.jpg
+    - ""
+  - - thumbs/0-67.jpg
+    - 0-67.jpg
+    - ""
+  - - thumbs/0-68.jpg
+    - 0-68.jpg
+    - ""
+  - - thumbs/0-6.jpg
+    - 0-6.jpg
+    - ""
+  - - thumbs/0-70.jpg
+    - 0-70.jpg
+    - ""
+  - - thumbs/0-7-2.jpg
+    - 0-7-2.jpg
+    - ""
+  - - thumbs/0-7-3.jpg
+    - 0-7-3.jpg
+    - ""
+  - - thumbs/0-73.jpg
+    - 0-73.jpg
+    - ""
+  - - thumbs/0-74.jpg
+    - 0-74.jpg
+    - ""
+  - - thumbs/0-75.jpg
+    - 0-75.jpg
+    - ""
+  - - thumbs/0-76.jpg
+    - 0-76.jpg
+    - ""
+  - - thumbs/0-77.jpg
+    - 0-77.jpg
+    - ""
+  - - thumbs/0-78.jpg
+    - 0-78.jpg
+    - ""
+  - - thumbs/0-79.jpg
+    - 0-79.jpg
+    - ""
+  - - thumbs/0-7.jpg
+    - 0-7.jpg
+    - ""
+  - - thumbs/0-80.jpg
+    - 0-80.jpg
+    - ""
+  - - thumbs/0-81.jpg
+    - 0-81.jpg
+    - ""
+  - - thumbs/0-8-2.jpg
+    - 0-8-2.jpg
+    - ""
+  - - thumbs/0-82.jpg
+    - 0-82.jpg
+    - ""
+  - - thumbs/0-8-3.jpg
+    - 0-8-3.jpg
+    - ""
+  - - thumbs/0-83.jpg
+    - 0-83.jpg
+    - ""
+  - - thumbs/0-84.jpg
+    - 0-84.jpg
+    - ""
+  - - thumbs/0-85.jpg
+    - 0-85.jpg
+    - ""
+  - - thumbs/0-86.jpg
+    - 0-86.jpg
+    - ""
+  - - thumbs/0-87.jpg
+    - 0-87.jpg
+    - ""
+  - - thumbs/0-88.jpg
+    - 0-88.jpg
+    - ""
+  - - thumbs/0-89.jpg
+    - 0-89.jpg
+    - ""
+  - - thumbs/0-90.jpg
+    - 0-90.jpg
+    - ""
+  - - thumbs/0-91.jpg
+    - 0-91.jpg
+    - ""
+  - - thumbs/0-9-2.jpg
+    - 0-9-2.jpg
+    - ""
+  - - thumbs/0-92.jpg
+    - 0-92.jpg
+    - ""
+  - - thumbs/0-9-3.jpg
+    - 0-9-3.jpg
+    - ""
+  - - thumbs/0-93.jpg
+    - 0-93.jpg
+    - ""
+  - - thumbs/0-94.jpg
+    - 0-94.jpg
+    - ""
+  - - thumbs/0-95.jpg
+    - 0-95.jpg
+    - ""
+  - - thumbs/0-96.jpg
+    - 0-96.jpg
+    - ""
+  - - thumbs/0-97.jpg
+    - 0-97.jpg
+    - ""
+  - - thumbs/0-98.jpg
+    - 0-98.jpg
+    - ""
+  - - thumbs/0-99.jpg
+    - 0-99.jpg
+    - ""
+  - - thumbs/0-9.jpg
+    - 0-9.jpg
+    - ""
+  - - thumbs/0.jpg
+    - 0.jpg
+    - ""
+  - - thumbs/IMG_2304.jpg
+    - IMG_2304.jpg
+    - ""
+  - - thumbs/IMG_2306.jpg
+    - IMG_2306.jpg
+    - ""
+  - - thumbs/IMG_2311.jpg
+    - IMG_2311.jpg
+    - ""
+  - - thumbs/IMG_2313.jpg
+    - IMG_2313.jpg
+    - ""
+  - - thumbs/IMG_2799.jpg
+    - IMG_2799.jpg
+    - ""
+  - - thumbs/IMG_2804.jpg
+    - IMG_2804.jpg
+    - ""
+  - - thumbs/IMG_2812.jpg
+    - IMG_2812.jpg
+    - ""
+  - - thumbs/IMG_2813.jpg
+    - IMG_2813.jpg
+    - ""
+  - - thumbs/IMG_2814.jpg
+    - IMG_2814.jpg
+    - ""
+  - - thumbs/IMG_2818.jpg
+    - IMG_2818.jpg
+    - ""
+  - - thumbs/IMG_2829.jpg
+    - IMG_2829.jpg
+    - ""
+  - - thumbs/IMG_2832.jpg
+    - IMG_2832.jpg
+    - ""
+  - - thumbs/IMG_2836.jpg
+    - IMG_2836.jpg
+    - ""
+  - - thumbs/IMG_2839.jpg
+    - IMG_2839.jpg
+    - ""
+  - - thumbs/IMG_2841.jpg
+    - IMG_2841.jpg
+    - ""
+  - - thumbs/IMG_2846.jpg
+    - IMG_2846.jpg
+    - ""
+  - - thumbs/IMG_2847.jpg
+    - IMG_2847.jpg
+    - ""
+  - - thumbs/IMG_2848.jpg
+    - IMG_2848.jpg
+    - ""
+  - - thumbs/IMG_2869.jpg
+    - IMG_2869.jpg
+    - ""
+  - - thumbs/IMG_2871.jpg
+    - IMG_2871.jpg
+    - ""
+  - - thumbs/IMG_2875.jpg
+    - IMG_2875.jpg
+    - ""
+  - - thumbs/IMG_2876.jpg
+    - IMG_2876.jpg
+    - ""
+  - - thumbs/IMG_2877.jpg
+    - IMG_2877.jpg
+    - ""
+  - - thumbs/IMG_2881.jpg
+    - IMG_2881.jpg
+    - ""
+  - - thumbs/IMG_2882.jpg
+    - IMG_2882.jpg
+    - ""
+  - - thumbs/IMG_2883.jpg
+    - IMG_2883.jpg
+    - ""
+  - - thumbs/IMG_2884.jpg
+    - IMG_2884.jpg
+    - ""
+  - - thumbs/IMG_2890.jpg
+    - IMG_2890.jpg
+    - ""
+  - - thumbs/IMG_2896.jpg
+    - IMG_2896.jpg
+    - ""
+  - - thumbs/IMG_2897.jpg
+    - IMG_2897.jpg
+    - ""
+  - - thumbs/IMG_2916.jpg
+    - IMG_2916.jpg
+    - ""
+  - - thumbs/IMG_2929.jpg
+    - IMG_2929.jpg
+    - ""
+  - - thumbs/IMG_2940.jpg
+    - IMG_2940.jpg
+    - ""
+  - - thumbs/IMG_3435.jpg
+    - IMG_3435.jpg
+    - ""
+  - - thumbs/IMG_5554.jpg
+    - IMG_5554.jpg
+    - ""
+  - - thumbs/IMG_5557.jpg
+    - IMG_5557.jpg
+    - ""
+  - - thumbs/IMG_5562.jpg
+    - IMG_5562.jpg
+    - ""
+  - - thumbs/IMG_5569.jpg
+    - IMG_5569.jpg
+    - ""
+  - - thumbs/IMG_5571.jpg
+    - IMG_5571.jpg
+    - ""
+  - - thumbs/IMG_5572.jpg
+    - IMG_5572.jpg
+    - ""
+  - - thumbs/IMG_5574.jpg
+    - IMG_5574.jpg
+    - ""
+  - - thumbs/IMG_5577.jpg
+    - IMG_5577.jpg
+    - ""
+  - - thumbs/IMG_5578.jpg
+    - IMG_5578.jpg
+    - ""
+  - - thumbs/IMG_5586.jpg
+    - IMG_5586.jpg
+    - ""
+  - - thumbs/IMG_5588.jpg
+    - IMG_5588.jpg
+    - ""
+  - - thumbs/IMG_5594.jpg
+    - IMG_5594.jpg
+    - ""
+  - - thumbs/IMG_5595.jpg
+    - IMG_5595.jpg
+    - ""
+  - - thumbs/IMG_5597.jpg
+    - IMG_5597.jpg
+    - ""
+  - - thumbs/IMG_5598.jpg
+    - IMG_5598.jpg
+    - ""
+  - - thumbs/IMG_5599.jpg
+    - IMG_5599.jpg
+    - ""
+  - - thumbs/IMG_5600.jpg
+    - IMG_5600.jpg
+    - ""
+  - - thumbs/IMG_5606.jpg
+    - IMG_5606.jpg
+    - ""
+  - - thumbs/IMG_5608-2.jpg
+    - IMG_5608-2.jpg
+    - ""
+  - - thumbs/IMG_5608.jpg
+    - IMG_5608.jpg
+    - ""
+  - - thumbs/IMG_5609.jpg
+    - IMG_5609.jpg
+    - ""
+  - - thumbs/IMG_5611.jpg
+    - IMG_5611.jpg
+    - ""
+  - - thumbs/IMG_5613.jpg
+    - IMG_5613.jpg
+    - ""
+  - - thumbs/IMG_6155.jpg
+    - IMG_6155.jpg
+    - ""
+  - - thumbs/IMG_6158.jpg
+    - IMG_6158.jpg
+    - ""
+  - - thumbs/IMG_6160.jpg
+    - IMG_6160.jpg
+    - ""
+  - - thumbs/IMG_6162.jpg
+    - IMG_6162.jpg
+    - ""
+  - - thumbs/IMG_6163.jpg
+    - IMG_6163.jpg
+    - ""
+  - - thumbs/IMG_6166.jpg
+    - IMG_6166.jpg
+    - ""
+  - - thumbs/IMG_6167.jpg
+    - IMG_6167.jpg
+    - ""
+  - - thumbs/IMG_6168.jpg
+    - IMG_6168.jpg
+    - ""
+  - - thumbs/IMG_6170.jpg
+    - IMG_6170.jpg
+    - ""
+  - - thumbs/IMG_6171.jpg
+    - IMG_6171.jpg
+    - ""
+  - - thumbs/IMG_6172.jpg
+    - IMG_6172.jpg
+    - ""
+  - - thumbs/IMG_6177.jpg
+    - IMG_6177.jpg
+    - ""
+  - - thumbs/IMG_6184.jpg
+    - IMG_6184.jpg
+    - ""
+  - - thumbs/IMG_6185.jpg
+    - IMG_6185.jpg
+    - ""
+  - - thumbs/IMG_6186.jpg
+    - IMG_6186.jpg
+    - ""
+  - - thumbs/IMG_6192.jpg
+    - IMG_6192.jpg
+    - ""
+  - - thumbs/IMG_6201.jpg
+    - IMG_6201.jpg
+    - ""
+  - - thumbs/IMG_6203.jpg
+    - IMG_6203.jpg
+    - ""
+  - - thumbs/IMG_6205.jpg
+    - IMG_6205.jpg
+    - ""
+  - - thumbs/IMG_6210.jpg
+    - IMG_6210.jpg
+    - ""
+  - - thumbs/IMG_6214.jpg
+    - IMG_6214.jpg
+    - ""
+  - - thumbs/IMG_6215.jpg
+    - IMG_6215.jpg
+    - ""
+  - - thumbs/IMG_6216.jpg
+    - IMG_6216.jpg
+    - ""
+  - - thumbs/IMG_6226.jpg
+    - IMG_6226.jpg
+    - ""
+  - - thumbs/IMG_6228.jpg
+    - IMG_6228.jpg
+    - ""
+  - - thumbs/IMG_6229.jpg
+    - IMG_6229.jpg
+    - ""
+  - - thumbs/IMG_6233.jpg
+    - IMG_6233.jpg
+    - ""
+  - - thumbs/IMG_6235.jpg
+    - IMG_6235.jpg
+    - ""
+  - - thumbs/IMG_6237.jpg
+    - IMG_6237.jpg
+    - ""
+  - - thumbs/IMG_6240.jpg
+    - IMG_6240.jpg
+    - ""
+  - - thumbs/IMG_6249.jpg
+    - IMG_6249.jpg
+    - ""
+  - - thumbs/IMG_6255.jpg
+    - IMG_6255.jpg
+    - ""
+  - - thumbs/IMG_6258.jpg
+    - IMG_6258.jpg
+    - ""
+  - - thumbs/IMG_6259.jpg
+    - IMG_6259.jpg
+    - ""
+  - - thumbs/IMG_6260.jpg
+    - IMG_6260.jpg
+    - ""
+  - - thumbs/IMG_6264.jpg
+    - IMG_6264.jpg
+    - ""
+  - - thumbs/IMG_6266.jpg
+    - IMG_6266.jpg
+    - ""
+  - - thumbs/IMG_6268.jpg
+    - IMG_6268.jpg
+    - ""
+  - - thumbs/IMG_6269.jpg
+    - IMG_6269.jpg
+    - ""
+  - - thumbs/IMG_6270.jpg
+    - IMG_6270.jpg
+    - ""
+  - - thumbs/IMG_6274.jpg
+    - IMG_6274.jpg
+    - ""
+  - - thumbs/IMG_6284.jpg
+    - IMG_6284.jpg
+    - ""
+  - - thumbs/IMG_6286.jpg
+    - IMG_6286.jpg
+    - ""
+  - - thumbs/IMG_6288.jpg
+    - IMG_6288.jpg
+    - ""
+  - - thumbs/IMG_6289.jpg
+    - IMG_6289.jpg
+    - ""
+  - - thumbs/IMG_6292.jpg
+    - IMG_6292.jpg
+    - ""
+  - - thumbs/IMG_6296.jpg
+    - IMG_6296.jpg
+    - ""
+  - - thumbs/IMG_6300.jpg
+    - IMG_6300.jpg
+    - ""
+  - - thumbs/IMG_6302.jpg
+    - IMG_6302.jpg
+    - ""
+  - - thumbs/IMG_6310.jpg
+    - IMG_6310.jpg
+    - ""
+  - - thumbs/IMG_6312.jpg
+    - IMG_6312.jpg
+    - ""
+  - - thumbs/IMG_6316.jpg
+    - IMG_6316.jpg
+    - ""
+  - - thumbs/IMG_6320.jpg
+    - IMG_6320.jpg
+    - ""
+  - - thumbs/IMG_6325.jpg
+    - IMG_6325.jpg
+    - ""
+  - - thumbs/IMG_6329.jpg
+    - IMG_6329.jpg
+    - ""
+  - - thumbs/IMG_6338.jpg
+    - IMG_6338.jpg
+    - ""
+  - - thumbs/IMG_6341.jpg
+    - IMG_6341.jpg
+    - ""
+  - - thumbs/IMG_6344.jpg
+    - IMG_6344.jpg
+    - ""
+  - - thumbs/IMG_6346.jpg
+    - IMG_6346.jpg
+    - ""
+  - - thumbs/IMG_6347.jpg
+    - IMG_6347.jpg
+    - ""
+  - - thumbs/IMG_6348.jpg
+    - IMG_6348.jpg
+    - ""
+  - - thumbs/IMG_6349.jpg
+    - IMG_6349.jpg
+    - ""
+  - - thumbs/IMG_6351.jpg
+    - IMG_6351.jpg
+    - ""
+  - - thumbs/IMG_6354.jpg
+    - IMG_6354.jpg
+    - ""
+  - - thumbs/IMG_6355.jpg
+    - IMG_6355.jpg
+    - ""
+  - - thumbs/IMG_6356.jpg
+    - IMG_6356.jpg
+    - ""
+  - - thumbs/IMG_6359.jpg
+    - IMG_6359.jpg
+    - ""
+  - - thumbs/IMG_6363.jpg
+    - IMG_6363.jpg
+    - ""
+  - - thumbs/IMG_6364.jpg
+    - IMG_6364.jpg
+    - ""
+  - - thumbs/IMG_6369.jpg
+    - IMG_6369.jpg
+    - ""
+  - - thumbs/IMG_7005.jpg
+    - IMG_7005.jpg
+    - ""
+  - - thumbs/IMG_7007.jpg
+    - IMG_7007.jpg
+    - ""
+  - - thumbs/IMG_7009.jpg
+    - IMG_7009.jpg
+    - ""
+  - - thumbs/IMG_7011.jpg
+    - IMG_7011.jpg
+    - ""
+  - - thumbs/IMG_7015.jpg
+    - IMG_7015.jpg
+    - ""
+  - - thumbs/IMG_7023.jpg
+    - IMG_7023.jpg
+    - ""
+  - - thumbs/IMG_7024.jpg
+    - IMG_7024.jpg
+    - ""
+  - - thumbs/IMG_7025.jpg
+    - IMG_7025.jpg
+    - ""
+  - - thumbs/IMG_7026.jpg
+    - IMG_7026.jpg
+    - ""
+  - - thumbs/IMG_7027.jpg
+    - IMG_7027.jpg
+    - ""
+  - - thumbs/IMG_7033.jpg
+    - IMG_7033.jpg
+    - ""
+  - - thumbs/IMG_7034.jpg
+    - IMG_7034.jpg
+    - ""
+  - - thumbs/IMG_7049.jpg
+    - IMG_7049.jpg
+    - ""
+  - - thumbs/IMG_7050.jpg
+    - IMG_7050.jpg
+    - ""
+  - - thumbs/IMG_7060.jpg
+    - IMG_7060.jpg
+    - ""
+  - - thumbs/IMG_7062.jpg
+    - IMG_7062.jpg
+    - ""
+  - - thumbs/IMG_7064.jpg
+    - IMG_7064.jpg
+    - ""
+  - - thumbs/IMG_7071.jpg
+    - IMG_7071.jpg
+    - ""
+  - - thumbs/IMG_7073.jpg
+    - IMG_7073.jpg
+    - ""
+  - - thumbs/IMG_7075.jpg
+    - IMG_7075.jpg
+    - ""
+  - - thumbs/IMG_7076.jpg
+    - IMG_7076.jpg
+    - ""
+  - - thumbs/IMG_7077.jpg
+    - IMG_7077.jpg
+    - ""
+  :title: Bride and Groom
+  :bname: bridegroom
+
 - :sln: fports
   :loc: /home/media/pictures/aa-formal-portraits
   :thumb: thumb.jpg
@@ -1786,15 +2738,28 @@
     - ""
   :title: Formal Portraits
   :bname: fports
+
 - :sln: recep1
   :loc: /home/media/pictures/aa-reception-1
   :thumb: thumb.jpg
   :images: 
-  - - thumbs/0.jpg
-    - 0.jpg
+  - - thumbs/IMG_2955.jpg
+    - IMG_2955.jpg
     - ""
-  - - thumbs/0-2.jpg
-    - 0-2.jpg
+  - - thumbs/IMG_3031.jpg
+    - IMG_3031.jpg
+    - ""
+  - - thumbs/IMG_3033.jpg
+    - IMG_3033.jpg
+    - ""
+  - - thumbs/IMG_3043.jpg
+    - IMG_3043.jpg
+    - ""
+  - - thumbs/IMG_3050.jpg
+    - IMG_3050.jpg
+    - ""
+  - - thumbs/IMG_3051.jpg
+    - IMG_3051.jpg
     - ""
   - - thumbs/0-3.jpg
     - 0-3.jpg
@@ -1856,6 +2821,51 @@
   - - thumbs/0-24.jpg
     - 0-24.jpg
     - ""
+  - - thumbs/IMG_2959.jpg
+    - IMG_2959.jpg
+    - ""
+  - - thumbs/IMG_2962.jpg
+    - IMG_2962.jpg
+    - ""
+  - - thumbs/IMG_2967.jpg
+    - IMG_2967.jpg
+    - ""
+  - - thumbs/IMG_2968.jpg
+    - IMG_2968.jpg
+    - ""
+  - - thumbs/IMG_2969.jpg
+    - IMG_2969.jpg
+    - ""
+  - - thumbs/IMG_2970.jpg
+    - IMG_2970.jpg
+    - ""
+  - - thumbs/IMG_2971.jpg
+    - IMG_2971.jpg
+    - ""
+  - - thumbs/IMG_2972.jpg
+    - IMG_2972.jpg
+    - ""
+  - - thumbs/IMG_2973.jpg
+    - IMG_2973.jpg
+    - ""
+  - - thumbs/IMG_2974.jpg
+    - IMG_2974.jpg
+    - ""
+  - - thumbs/IMG_2975.jpg
+    - IMG_2975.jpg
+    - ""
+  - - thumbs/IMG_2976.jpg
+    - IMG_2976.jpg
+    - ""
+  - - thumbs/IMG_2977.jpg
+    - IMG_2977.jpg
+    - ""
+  - - thumbs/IMG_2979.jpg
+    - IMG_2979.jpg
+    - ""
+  - - thumbs/IMG_2980.jpg
+    - IMG_2980.jpg
+    - ""
   - - thumbs/0-25.jpg
     - 0-25.jpg
     - ""
@@ -1913,6 +2923,30 @@
   - - thumbs/0-45.jpg
     - 0-45.jpg
     - ""
+  - - thumbs/IMG_2985.jpg
+    - IMG_2985.jpg
+    - ""
+  - - thumbs/IMG_2991.jpg
+    - IMG_2991.jpg
+    - ""
+  - - thumbs/IMG_2993.jpg
+    - IMG_2993.jpg
+    - ""
+  - - thumbs/IMG_2994.jpg
+    - IMG_2994.jpg
+    - ""
+  - - thumbs/IMG_2995.jpg
+    - IMG_2995.jpg
+    - ""
+  - - thumbs/IMG_3000.jpg
+    - IMG_3000.jpg
+    - ""
+  - - thumbs/IMG_3002.jpg
+    - IMG_3002.jpg
+    - ""
+  - - thumbs/IMG_3005.jpg
+    - IMG_3005.jpg
+    - ""
   - - thumbs/0-46.jpg
     - 0-46.jpg
     - ""
@@ -1921,6 +2955,9 @@
     - ""
   - - thumbs/0-48.jpg
     - 0-48.jpg
+    - ""
+  - - thumbs/IMG_3006.jpg
+    - IMG_3006.jpg
     - ""
   - - thumbs/0-49.jpg
     - 0-49.jpg
@@ -2324,104 +3361,14 @@
   - - thumbs/0-187.jpg
     - 0-187.jpg
     - ""
-  - - thumbs/IMG_2955.jpg
-    - IMG_2955.jpg
-    - ""
-  - - thumbs/IMG_2959.jpg
-    - IMG_2959.jpg
-    - ""
-  - - thumbs/IMG_2962.jpg
-    - IMG_2962.jpg
-    - ""
-  - - thumbs/IMG_2967.jpg
-    - IMG_2967.jpg
-    - ""
-  - - thumbs/IMG_2968.jpg
-    - IMG_2968.jpg
-    - ""
-  - - thumbs/IMG_2969.jpg
-    - IMG_2969.jpg
-    - ""
-  - - thumbs/IMG_2970.jpg
-    - IMG_2970.jpg
-    - ""
-  - - thumbs/IMG_2971.jpg
-    - IMG_2971.jpg
-    - ""
-  - - thumbs/IMG_2972.jpg
-    - IMG_2972.jpg
-    - ""
-  - - thumbs/IMG_2973.jpg
-    - IMG_2973.jpg
-    - ""
-  - - thumbs/IMG_2974.jpg
-    - IMG_2974.jpg
-    - ""
-  - - thumbs/IMG_2975.jpg
-    - IMG_2975.jpg
-    - ""
-  - - thumbs/IMG_2976.jpg
-    - IMG_2976.jpg
-    - ""
-  - - thumbs/IMG_2977.jpg
-    - IMG_2977.jpg
-    - ""
-  - - thumbs/IMG_2979.jpg
-    - IMG_2979.jpg
-    - ""
-  - - thumbs/IMG_2980.jpg
-    - IMG_2980.jpg
-    - ""
-  - - thumbs/IMG_2985.jpg
-    - IMG_2985.jpg
-    - ""
-  - - thumbs/IMG_2991.jpg
-    - IMG_2991.jpg
-    - ""
-  - - thumbs/IMG_2993.jpg
-    - IMG_2993.jpg
-    - ""
-  - - thumbs/IMG_2994.jpg
-    - IMG_2994.jpg
-    - ""
-  - - thumbs/IMG_2995.jpg
-    - IMG_2995.jpg
-    - ""
-  - - thumbs/IMG_3000.jpg
-    - IMG_3000.jpg
-    - ""
-  - - thumbs/IMG_3002.jpg
-    - IMG_3002.jpg
-    - ""
-  - - thumbs/IMG_3005.jpg
-    - IMG_3005.jpg
-    - ""
-  - - thumbs/IMG_3006.jpg
-    - IMG_3006.jpg
-    - ""
-  - - thumbs/IMG_3031.jpg
-    - IMG_3031.jpg
-    - ""
-  - - thumbs/IMG_3033.jpg
-    - IMG_3033.jpg
-    - ""
   - - thumbs/IMG_3036.jpg
     - IMG_3036.jpg
     - ""
   - - thumbs/IMG_3038.jpg
     - IMG_3038.jpg
     - ""
-  - - thumbs/IMG_3043.jpg
-    - IMG_3043.jpg
-    - ""
   - - thumbs/IMG_3047.jpg
     - IMG_3047.jpg
-    - ""
-  - - thumbs/IMG_3050.jpg
-    - IMG_3050.jpg
-    - ""
-  - - thumbs/IMG_3051.jpg
-    - IMG_3051.jpg
     - ""
   - - thumbs/IMG_3055.jpg
     - IMG_3055.jpg
@@ -2905,6 +3852,7 @@
     - ""
   :title: Reception, Part 1
   :bname: recep1
+
 - :sln: photobooth
   :loc: /home/media/pictures/aa-photobooth
   :thumb: thumb.jpg
@@ -2941,6 +3889,12 @@
     - ""
   - - thumbs/IMG_0019.JPG
     - IMG_0019.JPG
+    - ""
+  - - thumbs/0.jpg
+    - 0.jpg
+    - ""
+  - - thumbs/0-2.jpg
+    - 0-2.jpg
     - ""
   - - thumbs/IMG_0020.JPG
     - IMG_0020.JPG
@@ -3943,6 +4897,7 @@
     - ""
   :title: Photobooth
   :bname: photobooth
+
 - :sln: maui
   :loc: /home/media/pictures/aa-maui-wpc
   :thumb: thumb.jpg
