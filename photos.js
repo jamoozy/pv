@@ -40,19 +40,17 @@ var photos = (function() {
 
   function get_all_comments() {
     var dir_img = get_dir_img_from_img();
-    window.console.log('Getting title/comments for "' + dir_img[0] + '/' + dir_img[1] + '"');
     $.get('dbi.rb', {
       dir:dir_img[0],
       type:'fetch',
       img:dir_img[1]
     }, function(json) {
-      window.console.log("Got json:\n"+json);
       eval('var obj='+json);
       if (obj.error !== undefined) {
         window.console.log("Error from server:\n" + obj.error);
       } else {
-        window.console.log("Got\ntitle:"+obj.title+"\ncomments:"+obj.comments);
-        $("#desc").html(obj.title);
+        window.console.log("Got DB response");
+        $("#desc").html((!obj.title) ? $("#image").attr("src") : obj.title);
         $("#comments").find('ul').html(obj.comments);
       }
     });
@@ -145,6 +143,7 @@ var photos = (function() {
     var spans = $(".content ul span");
     for (var i = 0; e = spans[i++];) {
       if ($(e).attr('src') == $("#image").attr('src')) {
+        window.console.log("get_current_img_idx():" + (i-1));
         return i - 1;
       }
     }
@@ -160,7 +159,7 @@ var photos = (function() {
     }
 
     var spans = $(".content ul span");
-    i = (i == spans.length - 1) ? 0 : i + 1;
+    i = (i >= spans.length - 1) ? 0 : i + 1;
     window.console.log("Setting to " + i);
     $("#image").attr('src', $(spans[i]).attr('src'));
     get_all_comments();
@@ -175,7 +174,7 @@ var photos = (function() {
     }
 
     var spans = $(".content ul span");
-    i = (i == 0) ? spans.length - 1 : i - 1;
+    i = (i <= 0) ? spans.length - 1 : i - 1;
     window.console.log("Setting to " + i);
     $("#image").attr('src', $(spans[i]).attr('src'));
     get_all_comments();
