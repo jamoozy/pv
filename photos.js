@@ -82,13 +82,13 @@ var photos = (function() {
     var desc = $('#desc');
     var comments = $('#comments');
     var img_pane = $("#img-pane");
-    var img = img_pane.find("img");
+    var image = $("#image");
     var form = $("#form");
 
     var max_width = overlay.width() - desc.outerWidth() - 3 * MARGINS;
     var max_height = overlay.height() - 2*MARGINS;
-    img.css('max-width', max_width + 'px');
-    img.css('max-height', max_height + 'px');
+    image.css('max-width', max_width + 'px');
+    image.css('max-height', max_height + 'px');
     img_pane.css('width', max_width + 'px');
     img_pane.css('height', max_height + 'px');
 
@@ -105,7 +105,18 @@ var photos = (function() {
     comments.css('margin-left', ml);
 
     $("#comment-pane").css('max-height', (overlay.height() - desc.outerHeight() - form.outerHeight() - 4*MARGINS-5) + 'px');
+
+    center_image();
   }
+
+  function center_image() {
+    var image = $("#image");
+    var total_space = parseInt(image.css('max-height'));
+    image.css('margin-top', ((total_space - image.height()) / 2) + 'px');
+//    $("#spinner").hide();
+  }
+
+//  function spin() { $("#spinner").show(); }
 
   function hide_viewer(evt) {
     evt.stopPropagation();
@@ -158,11 +169,13 @@ var photos = (function() {
       return;
     }
 
+//    spin();
     var spans = $(".content ul span");
     i = (i >= spans.length - 1) ? 0 : i + 1;
     window.console.log("Setting to " + i);
     $("#image").attr('src', $(spans[i]).attr('src'));
     get_all_comments();
+    center_image();
   }
 
   function prev() {
@@ -173,11 +186,13 @@ var photos = (function() {
       return;
     }
 
+//    spin();
     var spans = $(".content ul span");
     i = (i <= 0) ? spans.length - 1 : i - 1;
     window.console.log("Setting to " + i);
     $("#image").attr('src', $(spans[i]).attr('src'));
     get_all_comments();
+    center_image();
   }
 
   return {
@@ -185,6 +200,8 @@ var photos = (function() {
       //compute_li_min_width();
 
       $('li').find('span').click(show_viewer);
+
+      $("#image").load(center_image);
 
       $('#overlay').click(kill_event);
       $('#exit-bg').click(hide_viewer);
