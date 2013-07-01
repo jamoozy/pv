@@ -26,6 +26,7 @@ h1 {
 ul, li {
   display:inline-block;
   vertical-align:middle;
+  min-width:204px;
 }
 
 ul {

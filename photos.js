@@ -183,7 +183,7 @@ var photos = (function() {
 
   return {
     init : function() {
-      compute_li_min_width();
+      //compute_li_min_width();
 
       $('li').find('span').click(show_viewer);
 
