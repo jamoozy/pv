@@ -671,8 +671,6 @@ entries = [
       [ 'thumbs/0-21.jpg', '0-21.jpg', '' ],
       [ 'thumbs/0-22.jpg', '0-22.jpg', '' ],
       [ 'thumbs/0-23.jpg', '0-23.jpg', '' ],
-      [ 'thumbs/0-27.jpg', '0-27.jpg', '' ],
-      [ 'thumbs/0-28.jpg', '0-28.jpg', '' ],
       [ 'thumbs/0-24.jpg', '0-24.jpg', '' ],
       [ 'thumbs/0-25.jpg', '0-25.jpg', '' ],
       [ 'thumbs/0-27.jpg', '0-27.jpg', '' ],
