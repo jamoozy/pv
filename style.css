@@ -54,6 +54,10 @@ li span {
   cursor:pointer;
 }
 
+.fname {
+  display:none;
+}
+
 #exit-bg, #overlay {
   display:none;
   position:fixed;

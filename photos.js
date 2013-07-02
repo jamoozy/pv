@@ -124,6 +124,14 @@ var photos = (function() {
     $('#exit-bg').hide();
   }
 
+  function toggle_fnames() {
+    if ($(".fname").is(":visible")) {
+      $(".fname").hide();
+    } else {
+      $(".fname").show();
+    }
+  }
+
   function kill_event(evt) { evt.stopPropagation(); }
 
   function send_comment() {
@@ -210,6 +218,18 @@ var photos = (function() {
       $(window).resize(fit);
       $("#left").click(prev);
       $("#right").click(next);
+
+      $(window).on("keydown", function (e) {
+        if (e.keyCode === 70) {  // F key
+          toggle_fnames();
+        } else if ($("#overlay").is(":visible")) {
+          if (e.keyCode === 39) {         // right arrow
+            next();
+          } else if (e.keyCode === 37) {  // left arrow
+            prev();
+          }
+        }
+      });
     }
   };
 })();
