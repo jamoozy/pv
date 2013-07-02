@@ -17,34 +17,14 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# Ensure right amount of args.
-if ARGV.size != 3
-  puts "usage: #$0 [file] [size] [dst]"
-  puts "  [file] is the name of the file to resize."
-  puts "  [size] is the max width & height."
-  puts "  [dst] is the destination directory."
+if ARGV.size != 1
+  STDERR.puts "Usage: #$0 [fname]"
+  STDERR.puts "  Where [fname] is the name of the file to generate data for."
   exit 1
 end
 
-# "Parse" args.
-$src = ARGV[0]
-$size = ARGV[1]
-$dst = ARGV[2] + "/#$src"
+$fname = ARGV[0]
 
-# Ensure this doesn't already exist.
-if File.exists?($dst)
-  puts "#$dst already exists.  Skipping."
-  exit 2
-end
-
-# Check if we're doing width or height.
-`identify #$src` =~ /(\d+)x(\d+)/
-w,h = $1,$2
-
-if w > h
-  puts "[#$src] landscape"
-  `convert #$src -resize #{$size}x #$dst`
-else
-  puts "[#$src] portrait"
-  `convert #$src -resize x#$size #$dst`
-end
+puts "  - - thumbs/#$fname"
+puts "    - #$fname"
+puts '    - ""'
