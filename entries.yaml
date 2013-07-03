@@ -2313,20 +2313,32 @@
   :loc: /home/media/pictures/aa-bride-and-groom
   :thumb: thumb.jpg
   :images: 
+  - - thumbs/0-10.jpg
+    - 0-10.jpg
+    - ""
+  - - thumbs/0-11.jpg
+    - 0-11.jpg
+    - ""
+  - - thumbs/0-12.jpg
+    - 0-12.jpg
+    - ""
+  - - thumbs/0-13.jpg
+    - 0-13.jpg
+    - ""
+  - - thumbs/0-14.jpg
+    - 0-14.jpg
+    - ""
+  - - thumbs/0-15.jpg
+    - 0-15.jpg
+    - ""
   - - thumbs/0-100.jpg
     - 0-100.jpg
     - ""
   - - thumbs/0-101.jpg
     - 0-101.jpg
     - ""
-  - - thumbs/0-10-2.jpg
-    - 0-10-2.jpg
-    - ""
   - - thumbs/0-102.jpg
     - 0-102.jpg
-    - ""
-  - - thumbs/0-10-3.jpg
-    - 0-10-3.jpg
     - ""
   - - thumbs/0-103.jpg
     - 0-103.jpg
@@ -2346,17 +2358,20 @@
   - - thumbs/0-109.jpg
     - 0-109.jpg
     - ""
-  - - thumbs/0-10.jpg
-    - 0-10.jpg
-    - ""
   - - thumbs/0-110.jpg
     - 0-110.jpg
     - ""
   - - thumbs/0-111.jpg
     - 0-111.jpg
     - ""
+  - - thumbs/0-10-2.jpg
+    - 0-10-2.jpg
+    - ""
   - - thumbs/0-11-2.jpg
     - 0-11-2.jpg
+    - ""
+  - - thumbs/0-10-3.jpg
+    - 0-10-3.jpg
     - ""
   - - thumbs/0-112.jpg
     - 0-112.jpg
@@ -2375,9 +2390,6 @@
     - ""
   - - thumbs/0-119.jpg
     - 0-119.jpg
-    - ""
-  - - thumbs/0-11.jpg
-    - 0-11.jpg
     - ""
   - - thumbs/0-12-2.jpg
     - 0-12-2.jpg
@@ -2409,9 +2421,6 @@
   - - thumbs/0-129.jpg
     - 0-129.jpg
     - ""
-  - - thumbs/0-12.jpg
-    - 0-12.jpg
-    - ""
   - - thumbs/0-13-2.jpg
     - 0-13-2.jpg
     - ""
@@ -2427,23 +2436,14 @@
   - - thumbs/0-135.jpg
     - 0-135.jpg
     - ""
-  - - thumbs/0-13.jpg
-    - 0-13.jpg
-    - ""
   - - thumbs/0-14-3.jpg
     - 0-14-3.jpg
-    - ""
-  - - thumbs/0-14.jpg
-    - 0-14.jpg
     - ""
   - - thumbs/0-15-2.jpg
     - 0-15-2.jpg
     - ""
   - - thumbs/0-15-3.jpg
     - 0-15-3.jpg
-    - ""
-  - - thumbs/0-15.jpg
-    - 0-15.jpg
     - ""
   - - thumbs/0-16-2.jpg
     - 0-16-2.jpg
