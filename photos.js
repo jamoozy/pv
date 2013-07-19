@@ -50,7 +50,13 @@ var photos = (function() {
         window.console.log("Error from server:\n" + obj.error);
       } else {
         window.console.log("Got DB response");
-        $("#desc").html((!obj.title) ? $("#image").attr("src") : obj.title);
+        var desc = $("#desc");
+        if (obj.title) {
+          desc.show();
+          desc.html(obj.title);
+        } else {
+          desc.hide();
+        }
         $("#comments").find('ul').html(obj.comments);
       }
     });
