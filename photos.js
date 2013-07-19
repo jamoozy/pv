@@ -211,13 +211,19 @@ var photos = (function() {
 
       $("#image").load(center_image);
 
-      $('#overlay').click(kill_event);
+      //$('#overlay').click(kill_event);
       $('#exit-bg').click(hide_viewer);
       $("#x").click(hide_viewer);
       $('#submit').click(send_comment);
       $(window).resize(fit);
-      $("#left").click(prev);
-      $("#right").click(next);
+      $("#left").click(function(e) {
+        kill_event(e);
+        prev();
+      });
+      $("#right").click(function(e) {
+        kill_event(e);
+        next();
+      });
 
       $(window).on("keydown", function (e) {
         if (e.keyCode === 70) {  // F key
