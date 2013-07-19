@@ -98,6 +98,17 @@ li span {
   min-width:300px;
 }
 
+#comments #name {
+  width:80%;
+  margin:10px 10px 0 0;
+}
+
+.comments-list {
+  min-height:8em;
+}
+
+#comments textarea { width:98%; }
+
 #desc {
   font-size:16pt;
   text-align:center;
