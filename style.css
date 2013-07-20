@@ -23,6 +23,11 @@ h1 {
   margin-left:50px;
 }
 
+p {
+  font-size:18pt;
+  margin-left:50px;
+}
+
 ul, li {
   display:inline-block;
   vertical-align:middle;

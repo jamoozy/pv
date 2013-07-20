@@ -132,7 +132,7 @@ content << '</ul>'
 
 # Write index.html with the above content.
 f = File.new("#$tmp_dir/index.html", 'w')
-f.write("<!DOCTYPE html><html><head><meta charset='utf-8'><link rel='stylesheet' type='text/css' href='style.css'></head><body><div class='content'>#{content}</div></body></html>")
+f.write("<!DOCTYPE html><html><head><meta charset='utf-8'><link rel='stylesheet' type='text/css' href='style.css'></head><body><h1>Ashley &amp; Andrew</h1><p>Please feel free to leave comments ^_^</p><div class='content'>#{content}</div></body></html>")
 f.close
 
 # Copy tmp dir to final location.
