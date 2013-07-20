@@ -170,7 +170,12 @@ li span {
 
 #overlay li span { cursor:default; }
 
-.co-notice { padding:30px 10px 0 50px; }
+.content { margin-bottom:50px; }
+
+.co-notice {
+  font-size:8pt;
+  padding:20px 10px 0 50px;
+}
 
 .left {
   padding-right:10px;

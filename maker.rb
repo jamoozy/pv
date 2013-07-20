@@ -138,7 +138,9 @@ content << '</ul>'
 # Write index.html with the above content.
 f = File.new("#$tmp_dir/index.html", 'w')
 f.write("<!DOCTYPE html><html><head><meta charset='utf-8'><link rel='stylesheet' type='text/css' href='style.css'></head><body><div id=\"background\"><img src=\"background.jpg\" class=\"stretch\"/></div><h1 class=\"title\">Ashley &amp; Andrew</h1><p>Please feel free to leave comments ^_^</p><div class='content'>#{content}</div>")
-f.write('<div class="co-notice"><a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>All work on this page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.<br/>©Andrew Sabisch and Ashley Sabisch 2013&ndash;2014.</div>')
+f.write('<div class="co-notice"><a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>All work in the albums "Maui!" and "Maui Underwater" are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.<br/>©Andrew Sabisch and Ashley Sabisch 2013&ndash;2014.</div>')
+f.write('<div class="co-notice">All work in the "Engagement" Album: © Lindsay Newcomb <a href="http://www.lindsaynewcomb.com/">http://www.lindsaynewcomb.com/</a></div>')
+f.write('<div class="co-notice">All work in the "Details", "Getting Ready", "Ceremony", "Bride and Groom", "Wedding Party", "Formal Portraits", "Reception, Part 1", and "Reception 2" Albums: ©Burns Photography <a href="http://burnsphotographystudio.com/">http://burnsphotographystudio.com/</a></div>')
 f.write('</body></html>')
 f.close
 
