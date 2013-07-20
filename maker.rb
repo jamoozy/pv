@@ -33,7 +33,7 @@ $entries_yaml = 'entries.yaml'
 
 File.makedirs($tmp_dir) unless File.exists?($tmp_dir)
 File.makedirs($dst_dir) unless File.exists?($dst_dir)
-`cp icons/*.png .htaccess dbi.rb *.js style.css #$tmp_dir`
+`cp icons/*.png .htaccess dbi.rb *.js style.css background.jpg #$tmp_dir`
 
 # Makes a page for an album according to the entry.
 #   entry: And entry like what's described in the comments below.
@@ -108,7 +108,10 @@ def make_page(entry)
   f.write('<link rel="stylesheet" type="text/css" href="style.css">')
   f.write('<script src="jquery-1.10.1.min.js" type="text/javascript"></script>')
   f.write('<script src="photos.js" type="text/javascript"></script>')
-  f.write('</head><body><h1>')
+  f.write('<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine|Oregano">')
+  f.write('</head><body>')
+  f.write('<div id="background"><img src="background.jpg" class="stretch"/></div>')
+  f.write('<h1 class="subtitle">')
   f.write(entry[:title])
   f.write('</h1><div class="content"><ul>')
   entry[:images].each do |image|
@@ -132,7 +135,7 @@ content << '</ul>'
 
 # Write index.html with the above content.
 f = File.new("#$tmp_dir/index.html", 'w')
-f.write("<!DOCTYPE html><html><head><meta charset='utf-8'><link rel='stylesheet' type='text/css' href='style.css'></head><body><h1>Ashley &amp; Andrew</h1><p>Please feel free to leave comments ^_^</p><div class='content'>#{content}</div></body></html>")
+f.write("<!DOCTYPE html><html><head><meta charset='utf-8'><link rel='stylesheet' type='text/css' href='style.css'></head><body><div id=\"background\"><img src=\"background.jpg\" class=\"stretch\"/></div><h1 class=\"title\">Ashley &amp; Andrew</h1><p>Please feel free to leave comments ^_^</p><div class='content'>#{content}</div></body></html>")
 f.close
 
 # Copy tmp dir to final location.
