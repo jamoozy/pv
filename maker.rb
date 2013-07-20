@@ -74,6 +74,28 @@ def make_page(entry)
     # the user to run the chown on the DB and its directory.
     `chmod 664 #{full_db_name}`
     puts "Please run \"sudo chown :www-data #{full_db_name} && sudo chown :www-data #$tmp_dir/#{entry[:sln]}\""
+  else
+    begin
+      db = SQLite3::Database.new(full_db_name)
+    rescue SQLite3::CantOpenException => e
+      puts "Can't open db: ", full_db_name
+    end
+
+    # Make sure all the images' titles are up to date.
+    entry[:images].each do |img|
+      r = db.execute('select * from images where name=?', [img[1]])
+      if !r || r.size < 1
+#        puts "inserting img #{img[1]}"
+        db.execute('insert into images (name,title) values (?,?)', [img[1], img[2]])
+      elsif r.size > 1
+        puts "Error: got #{r.size} results for img #{img[1]}"
+      elsif r[0][2] != img[2]
+#        puts "Updating #{img[1]} title to \"#{img[2]}\""
+        db.execute('update images set title=? where id=?', [img[2], r[0][0]])
+#      else
+#        puts "#{img[1]} has an updaetd title."
+      end
+    end
   end
 
   # Write HTML file.
