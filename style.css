@@ -169,3 +169,10 @@ li span {
 }
 
 #overlay li span { cursor:default; }
+
+.co-notice { padding:30px 10px 0 50px; }
+
+.left {
+  padding-right:10px;
+  float:left
+}

@@ -117,7 +117,9 @@ def make_page(entry)
   entry[:images].each do |image|
     f.write("<li><span src=\"#{entry[:sln]}/#{image[1]}\"><img src=\"#{entry[:sln]}/#{image[0]}\" title=\"#{image[1]}\"><div class=\"fname\">#{image[1]}</div></span>")
   end
-  f.write('</ul></div><div id="exit-bg"><div id="overlay"><div id="x"><img src="x.png""></div><div id="img-pane"><div id="left" class="navs"><img src="left-arrow.png"></div><div id="right" class="navs"><img src="right-arrow.png"></div><img id="image" src=""></div><div id="desc"></div><div id="comments"><ul class="comments-list"></ul><div id="form">Leave a comment!<br>Name:<input size="30" value="" id="name" type="text"><br><textarea cols="34" rows="5" id="comment"></textarea><input type="button" id="submit" value="Submit"></div></div></div></div></body><html>')
+  f.write('</ul></div><div id="exit-bg"><div id="overlay"><div id="x"><img src="x.png""></div><div id="img-pane"><div id="left" class="navs"><img src="left-arrow.png"></div><div id="right" class="navs"><img src="right-arrow.png"></div><img id="image" src=""></div><div id="desc"></div><div id="comments"><ul class="comments-list"></ul><div id="form">Leave a comment!<br>Name:<input size="30" value="" id="name" type="text"><br><textarea cols="34" rows="5" id="comment"></textarea><input type="button" id="submit" value="Submit"></div></div></div></div>')
+  f.write('<div class="co-notice"><a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>All work on this page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.<br/>©Andrew Sabisch and Ashley Sabisch 2013&ndash;2014.</div>')
+  f.write('</body><html>')
   f.close
 end
 
@@ -135,7 +137,9 @@ content << '</ul>'
 
 # Write index.html with the above content.
 f = File.new("#$tmp_dir/index.html", 'w')
-f.write("<!DOCTYPE html><html><head><meta charset='utf-8'><link rel='stylesheet' type='text/css' href='style.css'></head><body><div id=\"background\"><img src=\"background.jpg\" class=\"stretch\"/></div><h1 class=\"title\">Ashley &amp; Andrew</h1><p>Please feel free to leave comments ^_^</p><div class='content'>#{content}</div></body></html>")
+f.write("<!DOCTYPE html><html><head><meta charset='utf-8'><link rel='stylesheet' type='text/css' href='style.css'></head><body><div id=\"background\"><img src=\"background.jpg\" class=\"stretch\"/></div><h1 class=\"title\">Ashley &amp; Andrew</h1><p>Please feel free to leave comments ^_^</p><div class='content'>#{content}</div>")
+f.write('<div class="co-notice"><a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>All work on this page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.<br/>©Andrew Sabisch and Ashley Sabisch 2013&ndash;2014.</div>')
+f.write('</body></html>')
 f.close
 
 # Copy tmp dir to final location.
