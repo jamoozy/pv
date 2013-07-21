@@ -28,12 +28,12 @@ end
 
 # "parse args"
 $tmp_dir = '.gen'
-$dst_dir = '/home/jamoozy/www/pv'
+$dst_dir = '/home/jamoozy/www/pix'
 $entries_yaml = 'entries.yaml'
 
 File.makedirs($tmp_dir) unless File.exists?($tmp_dir)
 File.makedirs($dst_dir) unless File.exists?($dst_dir)
-`cp icons/*.png .htaccess dbi.rb *.js style.css background.jpg #$tmp_dir`
+`cp icons/*.png .htaccess upload.rb dbi.rb *.js style.css background.jpg #$tmp_dir`
 
 # Makes a page for an album according to the entry.
 #   entry: And entry like what's described in the comments below.
@@ -136,8 +136,13 @@ content << '</ul>'
 
 # Write index.html with the above content.
 f = File.new("#$tmp_dir/index.html", 'w')
-f.write("<!DOCTYPE html><html><head><meta charset='utf-8'><link rel=\"stylesheet\" type=\"text/css\" href=\"http://fonts.googleapis.com/css?family=Tangerine|Oregano\"><link rel='stylesheet' type='text/css' href='style.css'></head><body><div id=\"background\"><img src=\"background.jpg\" class=\"stretch\"/></div><h1 class=\"title\">Ashley &amp; Andrew</h1><p>Please feel free to leave comments ^_^</p><div class='content'>#{content}</div>")
-f.write('<div class="co-notice"><a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>All work in the albums "Maui!" and "Maui Underwater" are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.<br/>©Andrew Sabisch and Ashley Sabisch 2013&ndash;2014.</div>')
+f.write('<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine|Oregano"><link rel="stylesheet" type="text/css" href="style.css">')
+f.write('<script src="jquery-1.10.1.min.js" type="text/javascript"></script>')
+f.write('<script src="upload.js" type="text/javascript"></script>')
+f.write('</head><body><div id="background"><img src="background.jpg" class="stretch"/></div><h1 class="title">Ashley &amp; Andrew</h1><p>Please feel free to leave comments ^_^</p>')
+f.write('<div class="p">Have something you\'d like to share?  Upload it and I\'ll post it ASAP:<br/><form enctype="multipart/form-data"><input name="files[]" type="file" multiple/><input type="button" value="Upload!" disabled="disabled"></form><progress style="display:none;"></progress><div id="status"></div></div>')
+f.write("<div class='content'>#{content}</div>")
+f.write('<div class="co-notice"><a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png"/></a>All work in the albums "Maui!" and "Maui Underwater" are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.<br/>©Andrew Sabisch and Ashley Sabisch 2013&ndash;2014.</div>')
 f.write('<div class="co-notice">All work in the "Engagement" Album: © Lindsay Newcomb <a href="http://www.lindsaynewcomb.com/">http://www.lindsaynewcomb.com/</a></div>')
 f.write('<div class="co-notice">All work in the "Details", "Getting Ready", "Ceremony", "Bride and Groom", "Wedding Party", "Formal Portraits", "Reception, Part 1", and "Reception 2" Albums: ©Burns Photography <a href="http://burnsphotographystudio.com/">http://burnsphotographystudio.com/</a></div>')
 f.write('</body></html>')

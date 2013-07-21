@@ -24,7 +24,7 @@ cgi = CGI.new
 puts cgi.header('text/html')
 
 # Ensure cgi['dir'] exists.
-unless (cgi.params.include? 'dir')
+unless cgi.params.include?('dir')
   puts '{error:"dir key missing"}'
   exit
 end
@@ -33,7 +33,7 @@ end
 begin
   $db = SQLite3::Database.new("#{cgi['dir']}/comments.db")
 rescue SQLite3::CantOpenException => e
-  puts "{error:'#{e}'}"
+  puts "{error:'#{e.gsub(/'/, "\\'"}'}"
 end
 
 # Convenience function to escape quotes.

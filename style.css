@@ -26,6 +26,7 @@ h1 { margin-left:50px; }
   text-shadow:10px 10px 10px #888;
   font-family:Tangerine;
   font-size:80pt;
+  font-weight:normal;
 }
 
 .subtitle {
@@ -50,9 +51,17 @@ h1 { margin-left:50px; }
   margin:0;
 }
 
-p {
+p, .p {
   font-size:18pt;
-  margin-left:50px;
+  margin:20px 50px;
+}
+
+#status {
+  display:none;
+  font-size:12pt;
+  margin:5px;
+  padding:5px;
+  border:1px solid black;
 }
 
 ul, li {
