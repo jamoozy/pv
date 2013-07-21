@@ -28,7 +28,7 @@ end
 
 # "parse args"
 $tmp_dir = '.gen'
-$dst_dir = '/home/jamoozy/www/pix'
+$dst_dir = '/home/jamoozy/www/pv'
 $entries_yaml = 'entries.yaml'
 
 File.makedirs($tmp_dir) unless File.exists?($tmp_dir)
