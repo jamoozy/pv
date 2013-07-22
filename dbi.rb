@@ -33,7 +33,8 @@ end
 begin
   $db = SQLite3::Database.new("#{cgi['dir']}/comments.db")
 rescue SQLite3::CantOpenException => e
-  puts "{error:'#{e.gsub(/'/, "\\'"}'}"
+  str = e.to_s.gsub(/'/, "\\'")
+  puts "{error:'#{str}'}"
 end
 
 # Convenience function to escape quotes.
