@@ -135,11 +135,11 @@ def parse_args
       options.dst = d
     end
     opts.on('-tTMP', '--tmp=TMP', 'Specify temorary directory.') do |t|
-      puts 'tmp: ', t.to_s
+      puts 'tmp: ' + t.to_s
       options.tmp = t
     end
     opts.on('-yYML', '--yaml=YML', 'Specify YAML-formatted ') do |y|
-      puts 'yml: ', y.to_s
+      puts 'yml: ' + y.to_s
       options.entries = y
     end
   end.parse!
