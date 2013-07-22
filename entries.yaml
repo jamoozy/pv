@@ -6500,9 +6500,7 @@
 
 - :sln: recep2
   :loc: /home/media/pictures/aa-reception-2
-  :thumb:   
-  - - thumbs/0-9.jpg
-    
+  :thumb: thumbs/0-9.jpg
   :images: 
   - - thumbs/0.jpg
     - 0.jpg
@@ -6864,17 +6862,17 @@
   - - thumbs/0-65.jpg
     - 0-65.jpg
     - ""
-  - - thumbs/IMG_3253.jpg
-    - IMG_3253.jpg
-    - ""
-  - - thumbs/IMG_3254.jpg
-    - IMG_3254.jpg
-    - ""
   - - thumbs/0-66.jpg
     - 0-66.jpg
     - ""
   - - thumbs/0-67.jpg
     - 0-67.jpg
+    - ""
+  - - thumbs/IMG_3253.jpg
+    - IMG_3253.jpg
+    - ""
+  - - thumbs/IMG_3254.jpg
+    - IMG_3254.jpg
     - ""
   - - thumbs/IMG_3255.jpg
     - IMG_3255.jpg
