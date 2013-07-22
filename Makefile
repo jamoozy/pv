@@ -1,4 +1,4 @@
 .PHONY : all
 
 all :
-	./maker.rb
+	./maker.rb --tmp=.gen/ --yaml=entries.yaml --destination=~/www/pix/
