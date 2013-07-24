@@ -33,8 +33,6 @@ var upload = (function() {
 
   return {
     init : function() {
-      window.console.log("loaded");
-
       $(':file').change(function(){
         if ($(this.files).size() > 0) {
           enable_upload_button();

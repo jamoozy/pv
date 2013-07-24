@@ -242,6 +242,12 @@ var photos = (function() {
           }
         }
       });
+
+      $("img.lazy").jail({
+        effect:"fadeIn",
+        timeout:1,
+        speed:1000
+      });
     }
   };
 })();
