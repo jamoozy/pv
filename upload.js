@@ -33,7 +33,6 @@ var upload = (function() {
 
   return {
     init : function() {
-      alert("HEY");
       window.console.log("loaded");
 
       $(':file').change(function(){
