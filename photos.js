@@ -216,6 +216,7 @@ var photos = (function() {
       $('li').find('span').click(show_viewer);
 
       $("#image").load(center_image);
+      $("#comments").click(kill_event);
 
       //$('#overlay').click(kill_event);
       $('#exit-bg').click(hide_viewer);
