@@ -91,7 +91,11 @@ def make_page(entry)
   f.write("<title>#{entry[:title]}</title>")
   f.write('<link rel="stylesheet" type="text/css" href="style.css">')
   f.write('<script src="jquery-1.10.1.min.js" type="text/javascript"></script>')
+  f.write('<script src="jail.min.js" type="text/javascript"></script>')
   f.write('<script src="photos.js" type="text/javascript"></script>')
+  f.write('<script type="text/javascript">')
+  f.write('$(function(){$("img.lazy").jail({effect:"fadeIn",timeout:1,speed:1000});})')
+  f.write('</script>')
   f.write('<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine|Oregano">')
   f.write('</head><body>')
   f.write('<div id="background"><img src="background.jpg" class="stretch"/></div>')
@@ -99,7 +103,9 @@ def make_page(entry)
   f.write(entry[:title])
   f.write('</h1><div class="content"><ul>')
   entry[:images].each do |image|
-    f.write("<li><span src=\"#{entry[:sln]}/#{image[1]}\"><img src=\"#{entry[:sln]}/#{image[0]}\" title=\"#{image[1]}\"><div class=\"fname\">#{image[1]}</div></span>")
+    thumb_path = "#{entry[:sln]}/#{image[0]}"
+    path = "#{entry[:sln]}/#{image[1]}"
+    f.write("<li><span src=\"#{path}\"><img class=\"lazy\" data-src=\"#{thumb_path}\" src=\"blank.png\" title=\"#{image[1]} /><noscript><img src=\"#{thumb_path}\" title=\"#{image[1]}\"></noscript><div class=\"fname\">#{image[1]}</div></span>")
   end
   f.write('</ul></div><div id="exit-bg"><div id="overlay"><div id="x"><img src="x.png""></div><div id="img-pane"><div id="left" class="navs"><img src="left-arrow.png"></div><div id="right" class="navs"><img src="right-arrow.png"></div><img id="image" src=""></div><div id="desc"></div><div id="comments"><ul class="comments-list"></ul><div id="form">Leave a comment!<br>Name:<input size="30" value="" id="name" type="text"><br><textarea cols="34" rows="5" id="comment"></textarea><input type="button" id="submit" value="Submit"></div></div></div></div>')
   f.write('</body><html>')

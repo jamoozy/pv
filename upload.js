@@ -33,6 +33,9 @@ var upload = (function() {
 
   return {
     init : function() {
+      alert("HEY");
+      window.console.log("loaded");
+
       $(':file').change(function(){
         if ($(this.files).size() > 0) {
           enable_upload_button();
@@ -89,6 +92,9 @@ var upload = (function() {
           processData: false
         });
       });
+
+      // Start jQuery Asynchronous Image Loading.
+//      $('img.lazy').jail({effect:'fadeIn'});
     }
   };
 })();
