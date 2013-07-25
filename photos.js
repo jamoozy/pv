@@ -232,8 +232,8 @@ var photos = (function() {
         next();
       });
 
-      $(window).on("keydown", function (e) {
-        if (e.keyCode === 70) {  // F key
+      $(window).keydown(function (e) {
+        if (e.keyCode === 70 && !e.ctrlKey) {  // F key
           toggle_fnames();
         } else if ($("#overlay").is(":visible")) {
           if (e.keyCode === 39) {         // right arrow
