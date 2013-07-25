@@ -56,6 +56,21 @@ if cgi['type'] == 'fetch' then
 
 # Place a new comment into the DB.
 elsif cgi['type'] == 'put' then
+  unless cgi.params.include? 'img'
+    puts "{error:'No \"img\" key.}"
+    exit
+  end
+
+  unless cgi.params.include? 'name'
+    puts "{error:'No \"name\" key.}"
+    exit
+  end
+
+  unless cgi.params.include? 'comment'
+    puts "{error:'No \"comment\" key.}"
+    exit
+  end
+
   begin
     $db.execute("select id from images where name=?", [cgi['img']]) do |row|
       $id = row[0]
