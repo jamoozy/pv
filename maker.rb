@@ -102,7 +102,7 @@ def make_page(entry)
   entry[:images].each do |image|
     thumb_path = "#{entry[:sln]}/#{image[0]}"
     path = "#{entry[:sln]}/#{image[1]}"
-    f.write("<li><span src=\"#{path}\"><img class=\"lazy\" data-src=\"#{thumb_path}\" src=\"loading.png\" title=\"#{image[1]} /><noscript><img src=\"#{thumb_path}\" title=\"#{image[1]}\"></noscript><div class=\"fname\">#{image[1]}</div></span>")
+    f.write("<li><span src=\"#{path}\"><img class=\"lazy\" data-src=\"#{thumb_path}\" src=\"loading.png\" title=\"#{image[1]}\" /><noscript><img src=\"#{thumb_path}\" title=\"#{image[1]}\"></noscript><div class=\"fname\">#{image[1]}</div></span>")
   end
   f.write('</ul></div><div id="exit-bg"><div id="overlay"><div id="x"><img src="x.png""></div><div id="img-pane"><div id="left" class="navs"><img src="left-arrow.png"></div><div id="right" class="navs"><img src="right-arrow.png"></div><img id="image" src=""></div><div id="desc"></div><div id="comments"><ul class="comments-list"></ul><div id="form">Leave a comment!<br>Name:<input size="30" value="" id="name" type="text"><br><textarea cols="34" rows="5" id="comment"></textarea><input type="button" id="submit" value="Submit"></div></div></div></div>')
   f.write('</body><html>')
