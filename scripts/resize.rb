@@ -38,13 +38,15 @@ if File.exists?($dst)
 end
 
 # Check if we're doing width or height.
-`identify #$src` =~ /(\d+)x(\d+)/
-w,h = $1,$2
+/(\d+)x(\d+)/ =~ `identify #$src`
+w,h = $1.to_i,$2.to_i
 
 if w > h
-  puts "[#$src] landscape"
-  `convert #$src -resize #{$size}x #$dst`
+  cmd = "convert #$src -resize #{$size}x #$dst"
+  puts "[#$src] landscape ... running #{cmd}"
+  `#{cmd}`
 else
-  puts "[#$src] portrait"
-  `convert #$src -resize x#$size #$dst`
+  cmd = "convert #$src -resize x#$size #$dst"
+  puts "[#$src] portrait ... running #{cmd}"
+  `#{cmd}`
 end
