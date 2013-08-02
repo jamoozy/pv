@@ -84,7 +84,7 @@ elsif cgi['type'] == 'put' then
                   (name, comment, utime, ip, img_id)
                 values
                   (?, ?, ?, ?, ?)",
-               [cgi['name'], cgi['comment'], Time.now.to_i, cgi.remote_addr, $id])
+               [cgi['name'].strip, cgi['comment'].strip, Time.now.to_i, cgi.remote_addr, $id])
   rescue SQLite3::CantOpenException => e
     puts "{error:'#{e}',query:\"insert into comments (name, comment, utime, ip, img_id) values (#{cgi['name']}, #{cgi['comment']}, #{Time.now.to_i}, #{ cgi.remote_addr}, #$id)\"}"
   end
