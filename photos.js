@@ -45,6 +45,7 @@ var photos = (function() {
       type:'fetch',
       img:dir_img[1]
     }, function(json) {
+      window.console.log("Eval'ing JSON:\n" + json);
       eval('var obj='+json);
       if (obj.error !== undefined) {
         window.console.log("Error from server:\n" + obj.error);
