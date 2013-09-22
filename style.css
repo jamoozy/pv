@@ -190,3 +190,14 @@ li span {
   padding-right:10px;
   float:left
 }
+
+#full-size-dl {
+  margin: 5px auto 0 auto;
+  border-top: 1px solid gray;
+  text-align: center;
+  padding-top: 5px;
+}
+
+#full-size-dl {
+  font-size: 8pt;
+}

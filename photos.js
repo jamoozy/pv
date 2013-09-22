@@ -75,8 +75,7 @@ var photos = (function() {
     overlay.show();
     $('#exit-bg').show();
 
-    var src = $(evt.target).parent().attr('src');
-    img.attr('src', src);
+    set_src($(evt.target).parent().attr('src'));
 
     fit();
 
@@ -120,10 +119,7 @@ var photos = (function() {
     var image = $("#image");
     var total_space = parseInt(image.css('max-height'));
     image.css('margin-top', ((total_space - image.height()) / 2) + 'px');
-//    $("#spinner").hide();
   }
-
-//  function spin() { $("#spinner").show(); }
 
   function hide_viewer(evt) {
     evt.stopPropagation();
@@ -184,11 +180,10 @@ var photos = (function() {
       return;
     }
 
-//    spin();
     var spans = $(".content ul span");
     i = (i >= spans.length - 1) ? 0 : i + 1;
     window.console.log("Setting to " + i);
-    $("#image").attr('src', $(spans[i]).attr('src'));
+    set_src($(spans[i]).attr('src'));
     get_all_comments();
     center_image();
   }
@@ -201,13 +196,20 @@ var photos = (function() {
       return;
     }
 
-//    spin();
     var spans = $(".content ul span");
     i = (i <= 0) ? spans.length - 1 : i - 1;
     window.console.log("Setting to " + i);
-    $("#image").attr('src', $(spans[i]).attr('src'));
+    set_src($(spans[i]).attr('src'));
     get_all_comments();
     center_image();
+  }
+
+  function set_src(src) {
+    var fs = src.replace("/", "/full-size/");
+    window.console.log("src:" + src);
+    window.console.log("fs:" + fs);
+    $("#image").attr('src', src);
+    $("#full-size-dl").find("a").attr('href', fs);
   }
 
   return {
