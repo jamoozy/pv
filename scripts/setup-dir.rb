@@ -28,6 +28,7 @@ class Options
   attr_accessor :verbose    # verbose output
   attr_accessor :dry_run    # don't actually do anything
   attr_accessor :procs      # num of parallel processes
+  attr_accessor :yaml       # just make YAML file
 
   attr_accessor :files      # image files to use
 
@@ -42,6 +43,7 @@ def parse_args
   options = Options.new
   options.verbose = false
   options.dry_run = false
+  options.yaml = false
   options.procs = 1
   options.files = []
   options.full_size = 'full-size'
@@ -63,6 +65,10 @@ def parse_args
     opts.on('-pNUM', '--processes=NUM', 'Speicfy number of processes to run in parallel.') do |p|
       puts 'procs: ' + p
       options.procs = p.to_i
+    end
+    opts.on('-y', '--yaml', 'Just produce YAML file.') do |y|
+      puts 'YAML.'
+      options.yaml = true
     end
 
     opts.on('-iF', '--include=F', 'Specify files to include.') do |f|
