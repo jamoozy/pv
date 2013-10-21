@@ -126,13 +126,14 @@ if __FILE__ == $0
   $opts = parse_args
 
   # Make thumbs/ and full-size/ dirs.
-  unless $opts.dry_run
+  unless $opts.dry_run or $opts.yaml
     File.makedirs($opts.full_size) unless File.directory?($opts.full_size)
     File.makedirs($opts.thumbs) unless File.directory?($opts.thumbs)
   end
 
   # Generate data.yml
   puts 'Generating data.yml ...'
+  run_cmd('rm -rf data.yml')
   data_file = File.new('data.yml', 'w')
   $opts.files.sort.each do |f|
     local = File.basename(f)
@@ -141,6 +142,9 @@ if __FILE__ == $0
     data_file.puts("  - ''")
   end
   data_file.close
+
+  # If "just make YAML", then we're done.
+  exit if $opts.yaml
 
   # Move current images to "full-size" dir.
   run_cmd("mv #{$opts.files.reduce{|a,b|a+' '+b}} #{$opts.full_size}")
