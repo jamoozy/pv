@@ -128,7 +128,7 @@ if __FILE__ == $0
   # Generate data.yml
   puts 'Generating data.yml ...'
   data_file = File.new('data.yml', 'w')
-  $opts.files.each do |f|
+  $opts.files.sort.each do |f|
     local = File.basename(f)
     data_file.puts("- - #{$opts.thumbs}/#{local}")
     data_file.puts("  - #{local}")
