@@ -17,6 +17,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+require 'cgi'
 require 'yaml'
 require 'ftools'
 require 'sqlite3'
@@ -29,7 +30,10 @@ include SQLite3
 def make_page(entry)
   `ln -s "#{entry[:loc]}" "#$tmp_dir/#{entry[:sln]}"` unless File.exists?("#$tmp_dir/#{entry[:sln]}")
 
-  images = YAML.load(entry[:loc] + '/data.yml')
+  data_file = entry[:loc] + '/data.yml'
+  puts 'Reading file: ' + data_file
+  images = File.open(data_file){|f|YAML.load(f)}
+  puts "Got #{images.size} data"
 
   # Check if DB already exists.  If not, create it.
   full_db_name = "#$tmp_dir/#{entry[:sln]}/comments.db"
@@ -59,6 +63,7 @@ def make_page(entry)
     # Initial entries for all the images.
     $db.transaction
     images.each do |img|
+      puts 'Adding image ' + img[1]
       $db.execute('insert into images (name,title) values (?,?)', [img[1], img[2]])
     end
     $db.commit
@@ -120,6 +125,7 @@ class Options
   attr_accessor :tmp
   attr_accessor :dst
   attr_accessor :entries
+  attr_accessor :tp
 end
 
 def parse_args
@@ -128,6 +134,7 @@ def parse_args
   options.tmp = '.gen'
   options.dst = '/home/jamoozy/www/pv'
   options.entries = 'entries.yaml'
+  options.tp = 'rsync -avP'
 
   OptionParser.new do |opts|
     opts.banner = "Usage: maker.rb [options]"
@@ -161,6 +168,7 @@ if __FILE__ == $0
   $tmp_dir = options.tmp
   $dst_dir = options.dst
   $entries = options.entries
+  $tp = options.tp
 
   File.makedirs($tmp_dir) unless File.exists?($tmp_dir)
   File.makedirs($dst_dir) unless File.exists?($dst_dir)
@@ -186,13 +194,11 @@ if __FILE__ == $0
   f.write('</head><body><div id="background"><img src="background.jpg" class="stretch"/></div><h1 class="title">Ashley &amp; Andrew</h1><p>Please feel free to leave comments ^_^</p>')
   f.write('<div class="p">Have something you\'d like to share?  Upload it and I\'ll post it ASAP:<br/><form enctype="multipart/form-data"><input name="files[]" type="file" multiple/><input type="button" value="Upload!" disabled="disabled"></form><progress style="display:none;"></progress><div id="status"></div></div>')
   f.write("<div class='content'>#{content}</div>")
-  f.write('<div class="co-notice"><a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png"/></a>All work in the albums "Maui!" and "Maui Underwater" are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.<br/>©Andrew Sabisch and Ashley Sabisch 2013&ndash;2014.</div>')
-  f.write('<div class="co-notice">All work in the "Engagement" Album: © Lindsay Newcomb <a href="http://www.lindsaynewcomb.com/">http://www.lindsaynewcomb.com/</a></div>')
-  f.write('<div class="co-notice">All work in the "Details", "Getting Ready", "Ceremony", "Bride and Groom", "Wedding Party", "Formal Portraits", "Reception, Part 1", and "Reception 2" Albums: ©Burns Photography <a href="http://burnsphotographystudio.com/">http://burnsphotographystudio.com/</a></div>')
+  f.write('<div class="co-notice"><a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png"/></a>All work in the albums "Maui!" and "Maui Underwater" are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.<br/>©Andrew Sabisch 2013&ndash;2014.</div>')
   f.write('</body></html>')
   f.close
 
   # Copy tmp dir to final location.
-  `rsync -avzP #$tmp_dir/ #$dst_dir/`
+  `#$tp #$tmp_dir/ #$dst_dir/`
 end
 
