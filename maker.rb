@@ -22,40 +22,46 @@ require 'ftools'
 require 'sqlite3'
 require 'optparse'
 
+include SQLite3
+
 # Makes a page for an album according to the entry.
 #   entry: And entry like what's described in the comments below.
 def make_page(entry)
   `ln -s "#{entry[:loc]}" "#$tmp_dir/#{entry[:sln]}"` unless File.exists?("#$tmp_dir/#{entry[:sln]}")
 
+  images = YAML.load(entry[:loc] + '/data.yml')
+
   # Check if DB already exists.  If not, create it.
   full_db_name = "#$tmp_dir/#{entry[:sln]}/comments.db"
   unless File.exists?(full_db_name)
     begin
-      db = SQLite3::Database.new(full_db_name)
-    rescue SQLite3::CantOpenException => e
+      puts 'Making new DB at: ' + full_db_name
+      $db = Database.new(full_db_name)
+    rescue CantOpenException => e
       puts "Can't open db: ", full_db_name
+      return
     end
-    db.execute("create table images (
-                  id integer primary key,
-                  name text,
-                  title text
-                )")
-    db.execute("create table comments (
-                  id integer primary key,
-                  name text,
-                  comment text,
-                  utime datetime,
-                  ip text,
-                  img_id integer,
-                  foreign key(img_id) references images(id)
-                )")
+    $db.execute("create table images (
+                   id integer primary key,
+                   name text,
+                   title text
+                 )")
+    $db.execute("create table comments (
+                   id integer primary key,
+                   name text,
+                   comment text,
+                   utime datetime,
+                   ip text,
+                   img_id integer,
+                   foreign key(img_id) references images(id)
+                 )")
 
     # Initial entries for all the images.
-    db.transaction
-    entry[:images].each do |img|
-      db.execute('insert into images (name,title) values (?,?)', [img[1], img[2]])
+    $db.transaction
+    images.each do |img|
+      $db.execute('insert into images (name,title) values (?,?)', [img[1], img[2]])
     end
-    db.commit
+    $db.commit
 
     # Set the right permissions for the webserver to handle the DB & prompt
     # the user to run the chown on the DB and its directory.
@@ -63,21 +69,21 @@ def make_page(entry)
     puts "Please run \"sudo chown :www-data #{full_db_name} && sudo chown :www-data #$tmp_dir/#{entry[:sln]}\""
   else
     begin
-      db = SQLite3::Database.new(full_db_name)
-    rescue SQLite3::CantOpenException => e
+      $db = Database.new(full_db_name)
+    rescue CantOpenException => e
       puts "Can't open db: ", full_db_name
     end
 
     # Make sure all the images' titles are up to date.
-    entry[:images].each do |img|
-      r = db.execute('select * from images where name=?', [img[1]])
+    images.each do |img|
+      r = $db.execute('select * from images where name=?', [img[1]])
       if !r || r.size < 1
-        db.execute('insert into images (name,title) values (?,?)', [img[1], img[2]])
+        $db.execute('insert into images (name,title) values (?,?)', [img[1], img[2]])
       elsif r.size > 1
         puts "Error: got #{r.size} results for img #{img[1]}"
       elsif r[0][2] != img[2]
         puts "Updating #{img[1]} title to \"#{img[2]}\""
-        db.execute('update images set title=? where id=?', [img[2], r[0][0]])
+        $db.execute('update images set title=? where id=?', [img[2], r[0][0]])
       end
     end
   end
@@ -99,7 +105,7 @@ def make_page(entry)
   f.write('<h1 class="subtitle">')
   f.write(entry[:title])
   f.write('</h1><div class="content"><ul>')
-  entry[:images].each do |image|
+  images.each do |image|
     thumb_path = "#{entry[:sln]}/#{image[0]}"
     path = "#{entry[:sln]}/#{image[1]}"
     f.write("<li><span src=\"#{path}\"><img class=\"lazy\" data-src=\"#{thumb_path}\" src=\"loading.png\" title=\"#{image[1]}\" /><noscript><img src=\"#{thumb_path}\" title=\"#{image[1]}\"></noscript><div class=\"fname\">#{image[1]}</div></span>")
@@ -134,16 +140,16 @@ def parse_args
       options.tp = tp
     end
     opts.on('-dDST', '--destination=DST', 'Specify a destination') do |d|
-      puts 'destination: ' + d.to_s
+      puts 'destination: ' + File.expand_path(d.to_s)
       options.dst = d
     end
     opts.on('-tTMP', '--tmp=TMP', 'Specify temorary directory.') do |t|
       puts 'tmp: ' + t.to_s
-      options.tmp = t
+      options.tmp = File.expand_path(t)
     end
     opts.on('-yYML', '--yaml=YML', 'Specify YAML-formatted ') do |y|
       puts 'yml: ' + y.to_s
-      options.entries = y
+      options.entries = File.expand_path(y)
     end
   end.parse!
   options
