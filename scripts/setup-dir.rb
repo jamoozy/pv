@@ -32,7 +32,6 @@ class Options
 
   attr_accessor :files      # image files to use
 
-  attr_accessor :full_size  # full size images dir
   attr_accessor :thumbs     # thumbs dir
 
   attr_accessor :size       # image size
@@ -46,7 +45,6 @@ def parse_args
   options.yaml = false
   options.procs = 1
   options.files = []
-  options.full_size = 'full-size'
   options.thumbs = 'thumbs'
   options.size = 1200
   options.thumb_size = 200
@@ -58,7 +56,7 @@ def parse_args
       puts 'verbose: ' + v.to_s
       options.verbose = v
     end
-    opts.on('-d', '--dry-run', "Do a dry run (print commands but don't execute them)") do |d|
+    opts.on('-d', '--dry-run', "Print commands but don't execute them.") do |d|
       puts 'Dry run.'
       options.dry_run = true;
     end
@@ -77,10 +75,6 @@ def parse_args
       options.files.flatten!
     end
 
-    opts.on('-fFS', '--full-size=DIR', 'Specify "full-size" dir name') do |d|
-      puts 'full-size: ' + d
-      options.full_size = File.expand_path(d)
-    end
     opts.on('-tDIR', '--thumb-dir=DIR', 'Set thumbs dir.') do |d|
       puts 'thumbs dir: ' + d
       options.thumbs = d
@@ -102,14 +96,10 @@ def parse_args
   end
 
   et = File.expand_path(options.thumbs)
-  ef = File.expand_path(options.full_size)
   options.files.each do |f|
     dn = File.dirname(f)
     if et == dn
       puts "Error: \"#{f}\" in thumbs dir \"#{options.thumbs}\""
-      exit
-    elsif ef == dn
-      puts "Error: \"#{f}\" in thumbs dir \"#{options.full_size}\""
       exit
     end
   end
@@ -125,9 +115,11 @@ end
 if __FILE__ == $0
   $opts = parse_args
 
+  dst_dir = File.expand_path($opts.size.to_s)
+
   # Make thumbs/ and full-size/ dirs.
   unless $opts.dry_run or $opts.yaml
-    File.makedirs($opts.full_size) unless File.directory?($opts.full_size)
+    File.makedirs(dst_dir) unless File.directory?(dst_dir)
     File.makedirs($opts.thumbs) unless File.directory?($opts.thumbs)
   end
 
@@ -138,7 +130,7 @@ if __FILE__ == $0
   $opts.files.sort.each do |f|
     local = File.basename(f)
     data_file.puts("- - #{$opts.thumbs}/#{local}")
-    data_file.puts("  - #{local}")
+    data_file.puts("  - #{$opts.size}/#{local}")
     data_file.puts("  - ''")
   end
   data_file.close
@@ -146,16 +138,11 @@ if __FILE__ == $0
   # If "just make YAML", then we're done.
   exit if $opts.yaml
 
-  # Move current images to "full-size" dir.
-  run_cmd("mv #{$opts.files.reduce{|a,b|a+' '+b}} #{$opts.full_size}")
-
   # Image resizes.
   scripts_dir = File.dirname(__FILE__)
-  Dir.chdir($opts.dry_run ? '.' : $opts.full_size) do
-    $opts.files.peach($opts.procs) do |f|
-      local = File.basename(f)
-      run_cmd("#{scripts_dir}/resize.rb #{local} #{$opts.size} ../")
-      run_cmd("#{scripts_dir}/resize.rb #{local} #{$opts.thumb_size} ../#{$opts.thumbs}")
-    end
+  $opts.files.peach($opts.procs) do |f|
+    local = File.basename(f)
+    run_cmd("#{scripts_dir}/resize.rb #{local} #{$opts.size} ./#{$opts.size}")
+    run_cmd("#{scripts_dir}/resize.rb #{local} #{$opts.thumb_size} ./#{$opts.thumbs}")
   end
 end
