@@ -31,22 +31,36 @@ $src = ARGV[0]
 $size = ARGV[1]
 $dst = ARGV[2] + "/#$src"
 
+def run_cmd(cmd)
+  puts "running #{cmd}"
+  `#{cmd}`
+end
+
 # Ensure this doesn't already exist.
 if File.exists?($dst)
   puts "#$dst already exists.  Skipping."
-  exit 2
+else
+  # Check if we're doing width or height, and rotate.
+  /(\d+)x(\d+)/ =~ `identify #$src`
+  w,h = $1.to_i,$2.to_i
+  if w > h
+    STDOUT.write("[#$src] landscape ... ")
+    run_cmd("convert #$src -resize #{$size}x #$dst")
+  else
+    STDOUT.write("[#$src] portrait ... ")
+    run_cmd("convert #$src -resize x#$size #$dst")
+  end
 end
 
-# Check if we're doing width or height.
-/(\d+)x(\d+)/ =~ `identify #$src`
-w,h = $1.to_i,$2.to_i
+# Check Exif metadata to see if this needs rotating.
+o = `identify -format "%[exif:orientation]" #$dst`.to_i
 
-if w > h
-  cmd = "convert #$src -resize #{$size}x #$dst"
-  puts "[#$src] landscape ... running #{cmd}"
-  `#{cmd}`
-else
-  cmd = "convert #$src -resize x#$size #$dst"
-  puts "[#$src] portrait ... running #{cmd}"
-  `#{cmd}`
+puts "have orientation: #{o}"
+case o
+when 6
+  puts("mogrify -rotate 90 #$dst")
+when 8
+  puts("mogrify -rotate 270 #$dst")
+when 3
+  puts("mogrify -rotate 180 #$dst")
 end
