@@ -147,8 +147,8 @@ def parse_args
       options.tp = tp
     end
     opts.on('-dDST', '--destination=DST', 'Specify a destination') do |d|
-      puts 'destination: ' + File.expand_path(d.to_s)
-      options.dst = d
+      puts 'destination: ' + d
+      options.dst = File.expand_path(d.to_s)
     end
     opts.on('-tTMP', '--tmp=TMP', 'Specify temorary directory.') do |t|
       puts 'tmp: ' + t.to_s
@@ -201,4 +201,3 @@ if __FILE__ == $0
   # Copy tmp dir to final location.
   `#$tp #$tmp_dir/ #$dst_dir/`
 end
-
