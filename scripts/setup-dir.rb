@@ -1,6 +1,6 @@
 #!/usr/bin/ruby -w
 #
-# Copyright (c) 2013 Andrew "Jamoozy" C. Sabisch,
+# Copyright (c) 2015 Andrew "Jamoozy" C. Sabisch,
 # 
 # This file is part of Picture Viewer.
 # 
@@ -71,13 +71,13 @@ def parse_args
       options.yaml = true
     end
 
-    opts.on('-iF', '--include=F', 'Specify files to include.') do |f|
+    opts.on('-iF', '--include=F', 'Specify files to include. (multiple uses okay)') do |f|
       puts 'files: ' + f
       options.files << Dir[File.expand_path(f)]
       options.files.flatten!
     end
 
-    opts.on('-fFS', '--full-size=DIR', 'Specify "full-size" dir name') do |d|
+    opts.on('-fDIR', '--full-size=DIR', 'Specify "full-size" dir name') do |d|
       puts 'full-size: ' + d
       options.full_size = File.expand_path(d)
     end

@@ -1,6 +1,6 @@
 #!/usr/bin/ruby -w
 #
-# Copyright (c) 2013 Andrew "Jamoozy" C. Sabisch,
+# Copyright (c) 2015 Andrew "Jamoozy" C. Sabisch,
 # 
 # This file is part of Picture Viewer.
 # 
@@ -17,12 +17,20 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+# Ensure we're not being "required" (included?).
+if __FILE__ != $0
+  STDERR.puts "This script (#{__FILE__}) meant only to be run as main."
+  exit -1
+end
+
+# Usage
 if ARGV.size != 1
   STDERR.puts "Usage: #$0 [fname]"
   STDERR.puts "  Where [fname] is the name of the file to generate data for."
   exit 1
 end
 
+# "Parse" args.
 $fname = ARGV[0]
 
 puts "  - - thumbs/#$fname"
