@@ -1,6 +1,6 @@
 #!/usr/bin/ruby -w
 #
-# Copyright (c) 2013 Andrew "Jamoozy" Correa,
+# Copyright (c) 2013-2015 Andrew "Jamoozy" C. Sabisch,
 # 
 # This file is part of Picture Viewer.
 # 
