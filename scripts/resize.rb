@@ -21,7 +21,7 @@
 # Ensure we're not being "required" (imported?).
 if __FILE__ != $0
   STDERR.puts "This script (#{__FILE__}) meant only to be run as main."
-  exit -1
+  exit(-1)
 end
 
 
@@ -31,7 +31,7 @@ if ARGV.size != 3
   puts "  [file] is the name of the file to resize."
   puts "  [size] is the max width / height."
   puts "  [dst] is the destination directory."
-  exit 1
+  exit(1)
 end
 
 # "Parse" args.
@@ -53,15 +53,15 @@ else
   w,h = $1.to_i,$2.to_i
   if w > h
     STDOUT.write("[#$src] landscape ... ")
-    run_cmd("convert #$src -resize #{$size}x #$dst")
+    run_cmd("convert '#$src' -resize #{$size}x '#$dst'")
   else
     STDOUT.write("[#$src] portrait ... ")
-    run_cmd("convert #$src -resize x#$size #$dst")
+    run_cmd("convert '#$src' -resize x#$size '#$dst'")
   end
 end
 
 # Check Exif metadata to see if this needs rotating.
-o = `identify -format "%[exif:orientation]" #$dst`.to_i
+o = `identify -format "%[exif:orientation]" '#$dst'`.to_i
 
 puts "have orientation: #{o}"
 case o

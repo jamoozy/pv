@@ -33,6 +33,7 @@ class Options
   attr_accessor :files      # image files to use
 
   attr_accessor :thumbs     # thumbs dir
+  attr_accessor :full_size  # full-size dir
 
   attr_accessor :size       # image size
   attr_accessor :thumb_size # thumb size
@@ -46,6 +47,7 @@ def parse_args
   options.procs = 1
   options.files = []
   options.thumbs = 'thumbs'
+  options.full_size = 'full-size'
   options.size = 1200
   options.thumb_size = 200
 
@@ -65,14 +67,14 @@ def parse_args
       options.procs = p.to_i
     end
     opts.on('-y', '--yaml', 'Just produce YAML file.') do |y|
-      puts 'YAML.'
+      puts 'YAML only.'
       options.yaml = true
     end
 
     opts.on('-iF', '--include=F', 'Specify files to include. (multiple uses okay)') do |f|
-      puts 'files: ' + f
       options.files << Dir[File.expand_path(f)]
       options.files.flatten!
+      puts "files: #{options.files}"
     end
 
     opts.on('-fDIR', '--full-size=DIR', 'Specify "full-size" dir name') do |d|
@@ -128,8 +130,8 @@ if __FILE__ == $0
   end
 
   # Generate data.yml
-  puts 'Generating data.yml ...'
   run_cmd('rm -rf data.yml')
+  puts 'Generating data.yml ...'
   data_file = File.new('data.yml', 'w')
   $opts.files.sort.each do |f|
     local = File.basename(f)
@@ -138,6 +140,7 @@ if __FILE__ == $0
     data_file.puts("  - ''")
   end
   data_file.close
+  puts 'Done.'
 
   # If "just make YAML", then we're done.
   exit if $opts.yaml
