@@ -1,0 +1,75 @@
+<%
+#!/usr/bin/ruby -w
+#
+# Copyright (c) 2013 Andrew "Jamoozy" C. Sabisch,
+# 
+# This file is part of Picture Viewer.
+# 
+# Picture Viewer is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%=entry[:title]%></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="jquery-1.10.1.min.js" type="text/javascript"></script>
+    <script src="jail.min.js" type="text/javascript"></script>
+    <script src="photos.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine|Oregano">
+  </head>
+
+  <body>
+    <div id="background">
+      <img src="background.jpg" class="stretch"/></div>
+    <h1 class="subtitle"><%=entry[:title]%></h1>
+    <div class="content">
+      <ul>
+        <% images.each do |image| %>
+          <% thumb_path = "#{entry[:sln]}/#{image[0]}" %>
+          <% path = "#{entry[:sln]}/#{image[1]}" %>
+          <li>
+          <span src="<%=path%>">
+            <img class="lazy" data-src="<%=thumb_path%>" src="loading.png" title="<%=image[1]%>" />
+            <noscript>
+              <img src="<%=thumb_path%>" title="<%=image[1]%>">
+            </noscript>
+            <div class="fname"><%=image[1]%></div>
+          </span>
+        <% end %>
+      </ul>
+    </div>
+
+    <div id="exit-bg">
+      <div id="overlay">
+        <div id="x"><img src="x.png"></div>
+        <div id="img-pane">
+          <div id="left" class="navs"><img src="left-arrow.png"></div>
+          <div id="right" class="navs"><img src="right-arrow.png"></div>
+          <img id="image" src="">
+        </div>
+        <div id="desc"></div>
+        <div id="comments">
+          <ul class="comments-list"></ul>
+          <div id="form">Leave a comment!<br>
+            Name:<input size="30" value="" id="name" type="text"><br>
+            <textarea cols="34" rows="5" id="comment"></textarea>
+            <input type="button" id="submit" value="Submit">
+          </div>
+          <div id="full-size-dl"><a href="">(full size)</a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

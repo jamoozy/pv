@@ -24,7 +24,18 @@ require 'ftools'
 require 'sqlite3'
 require 'optparse'
 
+# Do ERB processing on 'iname' and spit it out to 'oname'
+def erb(iname, oname, bind)
+  f = File.open(oname, 'w') do |o|
+    File.open(iname, 'r') do |i|
+      o.write(ERB.new(i.read).result(bind))
+    end
+  end
+end
+
+
 include SQLite3
+
 
 # Makes a page for an album according to the entry.
 #   entry: And entry like what's described in the comments below.
@@ -95,30 +106,7 @@ def make_page(entry)
   end
 
   # Write HTML file.
-  html_name = "#$tmp_dir/#{entry[:bname]}.html"
-  f = File.new(html_name, 'w')
-  f.write('<!DOCTYPE html>')
-  f.write('<html><head>')
-  f.write('<meta charset="utf-8">')
-  f.write("<title>#{entry[:title]}</title>")
-  f.write('<link rel="stylesheet" type="text/css" href="style.css">')
-  f.write('<script src="jquery-1.10.1.min.js" type="text/javascript"></script>')
-  f.write('<script src="jail.min.js" type="text/javascript"></script>')
-  f.write('<script src="photos.js" type="text/javascript"></script>')
-  f.write('<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine|Oregano">')
-  f.write('</head><body>')
-  f.write('<div id="background"><img src="background.jpg" class="stretch"/></div>')
-  f.write('<h1 class="subtitle">')
-  f.write(entry[:title])
-  f.write('</h1><div class="content"><ul>')
-  images.each do |image|
-    thumb_path = "#{entry[:sln]}/#{image[0]}"
-    path = "#{entry[:sln]}/#{image[1]}"
-    f.write("<li><span src=\"#{path}\"><img class=\"lazy\" data-src=\"#{thumb_path}\" src=\"loading.png\" title=\"#{image[1]}\" /><noscript><img src=\"#{thumb_path}\" title=\"#{image[1]}\"></noscript><div class=\"fname\">#{image[1]}</div></span>")
-  end
-  f.write('</ul></div><div id="exit-bg"><div id="overlay"><div id="x"><img src="x.png""></div><div id="img-pane"><div id="left" class="navs"><img src="left-arrow.png"></div><div id="right" class="navs"><img src="right-arrow.png"></div><img id="image" src=""></div><div id="desc"></div><div id="comments"><ul class="comments-list"></ul><div id="form">Leave a comment!<br>Name:<input size="30" value="" id="name" type="text"><br><textarea cols="34" rows="5" id="comment"></textarea><input type="button" id="submit" value="Submit"></div><div id="full-size-dl"><a href="">(full size)</a></div></div></div></div>')
-  f.write('</body><html>')
-  f.close
+  erb('page.html.erb', "#$tmp_dir/#{entry[:bname]}.html", binding)
 end
 
 class Options
@@ -188,12 +176,7 @@ if __FILE__ == $0
   content << '</ul>'
 
   # Write index.html with the above content.
-  bind = binding
-  f = File.open("#$tmp_dir/index.html", 'w') do |o|
-    File.open('index.html.erb', 'r') do |i|
-      o.write(ERB.new(i.read).result(bind))
-    end
-  end
+  erb('index.html.erb', "#$tmp_dir/index.html", binding)
 
   # Copy tmp dir to final location.
   `#$tp #$tmp_dir/ #$dst_dir/`
